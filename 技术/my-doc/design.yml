@@ -1,0 +1,1047 @@
+swagger: "2.0"
+info:
+  description: "批发市场管理软件以及智能交易平台app系统"
+  version: "1.0.0"
+  title: "移动端智能交易系统"
+  termsOfService: "http://doc.airuanjian.vip/readme.html"
+schemes:
+- "https"
+- "http"
+paths:
+  /app/customer/auth_password:
+    post:
+      tags:
+      - "app_customer"
+      summary: "验证customer密码是否正确"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "customerId,mktId,password,必填"
+        required: true
+        schema:
+          $ref: "#/definitions/Customer"
+      responses:
+        405:
+          description: "Invalid input"
+  /app/customer/send-mobi-change-authcode:
+    get:
+      tags:
+      - "app_customer"
+      summary: "发送指定变更手机的验证码"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "phone"
+        in: "query"
+        description: "发送指定变更手机的验证码"
+        required: true
+  /app/customer/modify-phone:
+    get:
+      tags:
+      - "app_customer"
+      summary: "变更手机"
+      description: ""
+      consumes: 
+      - "application/json"
+      produces: 
+      - "application/json"
+      parameters: 
+      - name: "phone"
+        in: "query"
+        description: "新手机"
+        required: true
+      - name: "authcode"
+        in: "query"
+        required: true
+        description: "核对验证码"
+      - name: "customerId"
+        in:  "query"
+        required: true
+        description: "用户id"
+  /app/customer/message/setting-list:
+    get:
+      tags: 
+      - "app_message"
+      summary: "获取消息设置,返回用户的disabledMessageType"
+      description: ""
+      consumes: 
+      - "application/json"
+      parameters: 
+      - name: "customerId"
+        in:  "query"
+        required: true
+  /app/customer/message/manage:
+    post:
+      tags: 
+      - "app_message"
+      summary: "更新消息管理设置"
+      description: 
+      responses:
+        200:
+          description: OK
+      parameters: 
+      - name: "customerId"
+        in:  "query"
+        required: true
+      - name: "diabledMessageType"
+        in: "body"
+        description: "指定更新的用户的disabledMessageType"
+        required: true
+  /app/customer/message/query:
+    get: 
+      tags:
+      - "app_message"
+      summary: "app消息查询"
+      parameters: 
+        - name: "customerId"
+          in: "query"
+          required: true
+          description: "查询的用户id"
+        - name: "messageTypes"
+          in: "query"
+          description: "逗号分割的消息类型" 
+  /app/team/list:
+    get:
+      tags:
+      - "app_team"
+      summary: "根据customerId列出team"
+      description: "返回每个team的成员"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "customerId"
+        in: "query"
+        description: "app用户id"
+        required: true
+        type: "array"
+        default: "available"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Customer"
+        400:
+          description: "Invalid status value"
+  /app/team/invite-customer:
+    post:
+      tags:
+      - "app_team"
+      summary: "邀请指定customerId加入团队"
+      parameters: 
+      - name: "inviteTo"
+        type: "string"
+        in: "body"
+        description: "受到指定的customer"
+      - name: "inviteFrom"
+        description: "邀请人id(customerId)"
+        type: "string"
+        in: "body"
+        schema:
+            $ref: "#/definitions/InviteLog"
+  /app/team/accept-invite:
+    get:
+      tags:
+      - "app_team"
+      summary: "接受加入团队邀请"
+      parameters:
+      - name: "inviteLogId"
+        type: "string"
+        description: "邀请日志id"
+      - name: "customerId"
+        type: "string"
+        description: "接受人id"
+  /app/team/refuse-invite:
+    get:
+      tags:
+      - "app_team"
+      summary: "拒绝加入团队邀请"
+      parameters:
+      - name: "inviteLogId"
+        type: "string"
+      - name: "邀请日志id"
+        description: "拒绝人id"
+  /app/team/invitelog-list:
+    get:
+      tags: 
+      - "app_team"
+      summary: "列出发出去的邀请,时间倒叙排序"
+      parameters: 
+      - name: "memberId"
+        description: "会员id"
+      - name: "mktId"
+        description: "市场id"
+      description: 
+      responses:
+        200:
+          description: OK
+  /app/team/search-customer-by-phone:
+    get:
+      tags:
+      - "app_team"
+      summary: "根据手机号查找用户"
+      parameters: 
+      - name: "phone"
+        in: "query"
+        
+  /app/team/find-free-customer:
+    get:
+      tags: 
+        - "app_team"
+      summary: "查找自由的app用户,即：尚未就业或已经离职的app用户(除了自己)"
+      description: 
+      responses:
+        200:
+          description: OK
+      parameters: 
+        - name: "mktId"
+          description: "市场id"
+          type: "integer"
+          required: true
+        - name: "customerId"
+          description: "查找的用户的id"
+          required: true
+          type: "integer"
+    
+definitions:
+  DefaultMarketGolbalParam:
+    type: "object"
+    properties:
+      paramId:
+        type: "number"
+      key:
+        type: "string"
+      defaultValue:
+        type: "string"
+      comment: 
+        type: "注释"
+  Developer:
+    type: "object"
+    properties:
+      devId:
+        type: "number"
+      devUserName: 
+        type: "string"
+      password:
+        type: "string"
+      passwordHash:
+        type: "string"
+      createTime:
+        type: "Date"
+      updateTime:
+        type: "Date"
+  User:
+    type: "object"
+    description: "员工表"
+    epId: 
+      type: "integer"
+    epName: 
+      type: "string"
+    roleIds: 
+      type: "string"
+    menuIds:
+      type: "string"
+    epUserName: 
+      type: "string"
+    password: 
+      type: "string"
+    passwordHash: 
+      type: "string"
+    createTime: 
+      type: "Date"
+    updateTime:
+      type: "Date"
+    orgId: 
+      type: "integer"
+    marketId: 
+      type: "integer"
+    status: 
+      type: "string"
+      enum:
+      - "active"
+      - "disabled"
+      - "frozen"
+  Card:
+    type: "object"
+    properties:
+      cardId: 
+        type: "integer"
+      cardNo:
+        type: "string"
+      status: 
+        type: "string"
+        enum:
+        - "active"
+        - "disabled"
+        - "frozen"
+      mktId:
+        type: "integer"
+      customerId:
+        type: "integer"
+        description: "卡号指向会员id"
+      createWay:
+        type: "string"
+        enum:
+        - "app"
+        - "web_user"
+        - "web_dev"
+  ProdCatalog:
+    type: "object"
+    properties:
+      cateId: 
+        type: "integer"
+        description: "分类id"
+      cateName: 
+        type: "string"
+        description: "分类名称"
+      cateCode: 
+        type: "string"
+      parentId: 
+        type: "string"
+      isShow: 
+        type: "boolean"
+      orderNo: 
+        type: "string"
+        description: "订单号,单号生成器生成"
+      linkCateCode: 
+        type: "string"
+        description: "指向分类id"
+      mktId:
+        type:  "integer"
+        description: "市场id"
+      txnId:
+        type:  "integer"
+        description: "交易区id"
+  CommonLog:
+    type: "object"
+    properties:
+      logId:
+        type: "integer"
+      title:
+        type: "string"
+      content:
+        type: "string"
+      type:
+        type: "string"
+        enum: 
+        - "member_realname_auth_fail"
+        - "member_realname_auth_pass"
+      mktId:
+        type: "integer"
+      customerId:
+        type: "integer"
+      cardId:
+        type: "integer"
+      memberId:
+        type: "integer"
+      createTime:
+        type: "Date"
+      level:
+        type: "string"
+        enum: 
+        - "info"
+        - "success"
+        - "warning"
+        - "danger"
+      creatorId:
+        type: "integer"
+        description: "消息的发起人"
+        
+  Member:
+    type: "object"
+    properties: 
+      memberId: 
+        type: "integer"
+      customerId:
+        type: "integer"
+      name: 
+        type: "string"
+      status:
+        type: "string"
+        enum:
+        - "active"
+        - "disabled"
+        - "frozen"
+      idcard: 
+        type: "string"
+      idcardImageUrl: 
+        type: "string"
+      createTime:
+        type: "Date"
+        description: "注册时间"
+      createWay:
+        type: "string"
+        enum:
+        - "web"
+        - "app"
+      creatorId:
+        type: "integer"
+  Customer:
+    type: "object"
+    properties:
+      customerId:
+        type: "integer"
+      disabledMsgContentTypes:
+        type: "string"
+        description: "禁用消息类型数组"
+      name:
+        type: "string"
+        description: "员工姓名"
+      password:
+        type: "string"
+        description: "密码"
+      passwordHash:
+        type: "string"
+      avatarUrl:
+        type: "string"
+      createdTime:
+        type: "date"
+      status:
+        type: "string"
+        enum:
+        - "active"
+        - "disabled"
+      createWay:
+        type: "string"
+        enum:
+        - "web"
+        - "app"
+      mktId:
+        type: "integer"
+      memberId:
+        type: "integer"
+        description: "指向的会员账户"
+  Account:
+    type: "object"
+    properties:
+      accountId:
+        type: "integer"
+      name:
+        type: "string"
+      amt:
+        type: "BigDecimal"
+        description: "余额"
+      createTime:
+        type: "Date"
+      frozenAmt:
+        type: "BigDecimal"
+      status:
+        type: "string"
+        description: "账户状态"
+        enum:
+        - "active"
+        - "frozen"
+        - "disabled"
+      ownerType:
+        type: "string"
+        description: "用户类型"
+        enum:
+        - "member_account"
+        - "market_account"
+      amtType:
+        type: "string"
+        description: "交易类型"
+        enum:
+        - "online" 
+    xml:
+      name: "Account"
+  AccountRecvPay:
+    type: "object"
+    properties:
+      recvPayId:
+        type: "integer"
+      accountId:
+        type: "integer"
+      accountName:
+        type: "string"
+      toAccountId:
+        type: "integer"
+      toAccountName:
+        type: "string"
+      io:
+        type: "int"
+        enum:
+        - "1"
+        - "-1"
+        description:  "-1为支出,1为收入"
+      amt:
+        type: "BigDecimal"
+      createTime:
+        type : "Date"
+      orderId:
+       type: "integer"
+      subjectId:
+        type: "intege"
+      orderType:
+        type: "string"
+        enum: 
+        - "order_type"
+        - ""
+
+    xml:
+      name: "User"
+  AppMsgNotify:
+    type: "object"
+    properties:
+      msgId:
+        type: "integer"
+      content:
+        type: "string"
+      sendTime:
+        type: "Date"
+      addtion:
+        type: "string"
+        description: "附加参数"
+      mktId:
+        type: "integer"
+      title:
+        type: "string"
+        description: "标题"
+      contentType:
+        type: "string"
+        description: "消息类型"
+        enum:
+        - "account_change"
+        - "invite_info"
+        - "cash_repayment_notice"
+        - "cash_repayment_confirm"
+        - "to_be_pay"
+        - "actor_change"
+      isJpush:
+        type: "boolean"
+        description: "是否进行极光推送苹果呢"
+      status:
+        type: "string"
+        description: "短信状态"
+        enum:
+        - "unchecked"
+        - "checked"
+  InviteLog:
+    type: "object"
+    properties:
+        inviteLogId: 
+          type: "integer"
+          description: "邀请id"
+        content:
+          type: "string"
+          description: "邀请内容"
+        sendCustomerId:
+          type: "integer"
+          description: "发送者的customerId"
+        toCustomerId:
+          type: "integer"
+          description: "接收者的customerId"
+        status:
+          type: "string"
+          description: "状态"
+          enum: 
+          - "active"
+          - "agree"
+          - "refuse"
+        createTime:
+          type: "Date"
+          description: "短信发送时间"
+  Market:
+    type: "object"
+    description: "市场"
+    properties:
+      mktId: 
+        type: "integer"
+      mktName: 
+        type: "string"
+      telephone: 
+        type: "string"
+      province: 
+        type: "string"
+      city: 
+        type: "string"
+      area: 
+        type: "string"
+      menuIds: 
+        type: "string"
+      status: 
+        type: "string"
+      creatorId:
+        type: "integer"
+      auditorBy: 
+        type: "string"
+      auditorTime:
+        type: "Date"
+      auditorStatus:
+        type: "string"
+      auditorDesc: 
+        type: "string"
+      balance: 
+        type: "integer"
+  Product:
+    type: "object"
+    properties:
+      productId:
+        type: "integer"
+        description: "商品id"
+      categoryIds:
+        type: "string"
+        description: "分类id数组"
+      valuationType:
+        type: "string"
+        description: "计价方式"
+        enum:
+        - "piece"
+        - "weight"
+      name:
+        type: "string"
+        description: "商品名字"
+      price:
+        type: "BigDecimal"
+      customerId:
+        type: "integer"
+        description: "员工id"
+      createTime: 
+        type: "Date"
+        description: "创建时间"
+      memberId:
+        type: "integer"
+        description: "会员id"
+      status:
+        type: "string"
+        enum: 
+        - "online"
+        - "offline"
+  MemberRealnameAuth:
+    description: "实名认证表"
+    properties:
+      authId:
+        type: "integer"
+      name:
+        type: "string"
+      type:
+        type: "string"
+      mobi:
+        type: "string"
+      idcard:
+        type: "string"
+      idcardImageurl:
+        type: "string"
+        description: "身份证号地址"
+      bankcard:
+        type: "string"
+        description: "银行卡号"
+      paypassword:
+        type: "string"
+        description: "支付密码"
+      customerId:
+        type: "integer"
+      createTime:
+        type: "date"
+      mktId:
+        type: "integer"
+      status:
+        type: "string"
+        enum: 
+        - "processing"
+        - "pass"
+        - "fail"
+      failReason:
+        type: "string"
+      createWay:
+        type: "string"
+        enum: 
+        - "app"
+        - "web_user"
+        - "web_dev"
+  Menu:
+    description: "菜单"
+    properties:
+      menuId:
+        type: "integer"
+      text: 
+        type: "string"
+      i18n:
+        type: "string"
+      parentId: 
+        type: "integer"
+      link: 
+        type: "string"
+      externalink: 
+        type: "string"
+      target: 
+        type: "string"
+      icon: 
+        type: "string"
+      hide: 
+        type: "string"
+      hideInBreadcrumb: 
+        type: "string"
+      acl: 
+        type: "string"
+      shortcut: 
+        type: "string"
+      shortcutRoot: 
+        type: "string"
+      reuse: 
+        type: "boolean"
+      menuType: 
+        type: "MenuTypeEnum"
+      creatorId: 
+        type: "integer"
+      menuCode: 
+        type:  "string"
+      config: 
+        type: "string"
+        
+  SMSLog:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        description: "短信id"
+      content:
+        type: "string"
+        description: "内容"
+      sendTime:
+        type: "Date"
+        description: "发送时间"
+      isVerifySms: 
+        type: "boolean"
+        description: "是否验证码"
+      verifyCode:
+        type: "string"
+        description: "验证码"
+      verifyType:
+        type: "string"
+      bizId:
+        type: "string"
+        description: "流水线号"
+      mobi:
+        type: "string"
+        description: "手机号"
+      mktId:
+        type: "integer"
+        description: "市场id"
+      smsSupplier:
+        type: "string"
+        description: "短信供应商"
+  
+  Order:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+        description: "订单标题"
+      orderId:
+        type: "integer"
+      orderNo:
+        type: "string"
+        description: "订单号"
+      buyerId:
+        type: "integer"
+        description: "创建者id"
+      sellerId:
+        type: "integer"
+        description: "卖方id"
+      createTime:
+        type: "Date"
+        description: "交易时间"
+      status:
+        type: "string"
+        description: "订单状态"
+        enum: 
+        - "active"
+        - "disabled"
+        - "tobePay"
+        - "upload"
+        - "finish"
+        - "cancel"
+      totalAmt:
+        type: "BigDecimal"
+        description: "总计"
+  Orderitem:
+    type: "object"
+    properties:
+      orderId: 
+        type: "integer"
+      productName: 
+        type: "string"
+      categoryIds:
+        type: "string"
+        description: "分类id数组"
+      piece:
+        type: "integer"
+        description: "件数"
+      weight:
+        type: "integer"
+        description: "重量/斤"
+      valuationType:
+        type: "string"
+        description: "计价方式"
+        enum:
+        - "piece"
+        - "weight"
+      categorys:
+        type: "string"
+        description: "分类名称数组"
+      totalAmt:
+        type: "BigDecimal"
+        description: "单项总计金额"
+  OrderNo:
+    type: "object"
+    properties:
+      id: 
+        type: "integer"
+      currentKey:
+        type: "string" 
+      currentValue: 
+        type: "number"
+  Org:
+    type: "object"
+    properties:
+      orgId: 
+        type: "integer"
+      orgName:
+        type: "string"
+      parentId:
+        type: "integer"
+      mktId: 
+        type: "integer"
+      creatorId:
+        type: "integer"
+      createName:
+        type: "string"
+      createTime: 
+        type: "Date"
+  OssFile:
+    type: "object"
+    properties:
+      ossField: 
+        type: "integer"
+      prefix: 
+        type: "string"
+      name:
+        type: "string"
+      url:
+        type: "string"
+      requestUrls:
+        type: "string"
+      remotePort:
+        type: "string"
+      rt:
+        type: "integer"
+      stausCode:
+        type: "integer"
+      status:
+        type: "integer"
+      remoteAddress:
+        type: "string"
+      size:
+        type: "string"
+      mktId:
+        type: "integer"
+  PayFeeList:
+    type: "object"
+    properties:
+      payFeeListId:
+        type: "integer"
+      recordId: 
+        type: "integer"
+      chargeEpId: 
+        type: "integer"
+      payFeeMemberId: 
+        type: "integer"
+      mktId:  
+        type: "integer"
+      feeListId: 
+        type: "integer"
+      status: 
+        type: "PayfeeListStatusEnum"
+      limitStartChargeDt: 
+        type: "Date"
+      limitEndChargeDt: 
+        type: "Date"
+  PayFeeRecord:
+    type: "object"
+    properties:
+      recordId: 
+        type: "integer"
+      title: 
+        type: "string"
+      shouldChargeMoney:
+        type: "BigDecimal"
+      realChargeMoney:
+        type: "BigDecimal"
+      createTime:
+        type: "Date"
+      mktId:
+        type: "integer"
+      subjectId: 
+        type: "integer"
+      payFeeMemberId: 
+        type: "integer"
+      status:
+        type: "PayFeeRecordStatusEnum"
+  RecPaySubject:
+    type: "object"
+    properties:
+      subId: 
+        type: "integer"
+      subName: 
+        type: "string"
+      subCode:
+        type: "string"
+      parentId: 
+        type: "integer"
+      subLinkId:
+        type: "integer"
+      mktId: 
+        type: "integer"
+  TxnArea:
+    type: "object"
+    properties:
+      txnId: 
+        type: "integer"
+      mktId: 
+        type: "integer"
+      txnCode: 
+        type: "string"
+      txnName: 
+        type: "string"
+  OfflinePaymentLog:
+    type: "object"
+    description: "请求线下还款记录"
+    properties:
+      offlinePaymentLogId:
+        type: "integer"
+        description: "还款记录id"
+      money:
+        type: "BigDecimal"
+      createTime:
+        type: "Date"
+      status:
+        type: "string"
+        enum: 
+        - "active"
+        - "refuse"
+        - "agree"
+      accountId:
+        type: "integer"
+      toAccountId:
+        type: "integer"
+      accountName:
+        type: "string"
+        description: "冗余的账户名称"
+      toAccountName:
+        type: "string"
+        description: "冗余的账户名称"
+      orderId:
+        type: "integer"
+        description: "订单id"
+  TempOrder:
+    type: "object"
+    description: "临时订单表,完全和订单一样,少了订单号之类的"
+    properties:
+      orderItems:
+        type: "Array<OrderItem>"
+      memberId:
+        type: "integer"
+      createTime:
+        type: "Date"
+      customerId:
+        type: "integer"
+      status:
+        type: "string"
+        enum: 
+        - "active"
+        - "download"
+  AccountDebt:
+    type: "object"
+    description: "账户欠款记录"
+    properties:
+      debtNo:
+        type: "integer"
+        description: "欠款流水号"
+      debteeAccId:
+        type: "integer"
+        description: "债权人账户Id"
+      debteeAccName:
+        type: "string"
+        description: "债权人账户名"
+      debtorAccId:
+        type: "string"
+        description: "债务人id"
+      debtorAccName:
+        type: "string"
+        description: "债务账户名称"
+      debtAmt:
+        type: "BigDecimal"
+        description: "欠款金额"
+      repayAmt: 
+        type: "BigDecimal"
+        description: "已还金额"
+      orderType:
+        type: "OrderType"
+        description: "订单类型"
+      orderNo:
+        type: "string"
+        description: "订单编号"
+      remark:
+        type: "string"
+        description: "备注"
+      createTime:
+        type: "Date"
+        description: "创建时间"
+      RepaymentDays:
+        type: "integer"
+        description: "账期"
+      mktId:
+        type: "Integer"
+        description: "所属市场id"
+  AccountRepay:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      repayNo:
+        type: "string"
+        description: "欠款流水号"
+      deptId:
+        type: "integer" 
+      repayAmt:
+        type: "BigDecimal"
+        description: "还款金额"
+      confirmed:
+        type: "boolean"
+        description: "是否同意"
+      orderType:
+        type: "OrderType"
+        description: "订单类型"
+      orderNo:
+        type: "string"
+        description: "订单编号"
+      remark:
+        type: "string"
+        description: "备注"
+      createTime:
+        type: "Date"
+        description:  "创建时间"
+      confirmTime:
+        type: "Date"
+        description: "确认时间"
+      mktId:
+        type: "integer"
+        description: "所属市场id"
+
+
+externalDocs:
+  description: "开发文档"
+  url: "http://doc.airuanjian.vip/readme.html"
+  

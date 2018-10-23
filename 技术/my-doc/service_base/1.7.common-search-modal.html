@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>1.7.common-search-modal</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/yangjie/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.3.5/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  animation: myfirst 3s;
+  background: beige;
+}
+@keyframes myfirst {
+  from {
+    background: orange;
+    opacity: .1;
+  }
+  to {
+    background: beige;
+    opacity: 1;
+  }
+}
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1 class="mume-header" id="%E9%80%9A%E7%94%A8%E6%90%9C%E7%B4%A2%E6%A8%A1%E6%80%81%E6%A1%86">通用搜索模态框</h1>
+
+<p>通用搜索模态框用于解决客户搜索时,对单条或多条数据进行操作并返回的情况做处理.</p>
+<p>modalConfig 是默认的查询配置</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>objectCode</td>
+<td>string</td>
+<td>元数据对象编码</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="%E5%8D%95%E8%A7%86%E5%9B%BE-%E9%80%9A%E7%94%A8%E6%90%9C%E7%B4%A2%E6%A8%A1%E6%80%81%E6%A1%86">单视图-通用搜索模态框</h2>
+
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="699px" preserveAspectRatio="none" style="width:797px;height:699px;" version="1.1" viewBox="0 0 797 699" width="797px" zoomAndPan="magnify"><defs><filter height="300%" id="f1u47dl4w94tza" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><!--cluster 单视图--><polygon fill="#FFFFFF" filter="url(#f1u47dl4w94tza)" points="14,26,24,16,775,16,775,677,765,687,14,687,14,26" style="stroke: #000000; stroke-width: 1.5;"></polygon><line style="stroke: #000000; stroke-width: 1.5;" x1="765" x2="774" y1="26" y2="17"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="14" x2="765" y1="26" y2="26"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="765" x2="765" y1="26" y2="687"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="42" x="369.5" y="42.5352">单视图</text><!--cluster 查询模态框--><polygon fill="#FFFFFF" filter="url(#f1u47dl4w94tza)" points="22,223,32,213,492,213,492,669,482,679,22,679,22,223" style="stroke: #000000; stroke-width: 1.5;"></polygon><line style="stroke: #000000; stroke-width: 1.5;" x1="482" x2="491" y1="223" y2="214"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="482" y1="223" y2="223"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="482" x2="482" y1="223" y2="679"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="70" x="218" y="239.5352">查询模态框</text><!--entity singleConfig--><ellipse cx="260" cy="64" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="256,52,262,47,260,52,262,57,256,52" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="87" x="216.5" y="93.5352">singleConfig</text><!--entity search--><ellipse cx="57" cy="64" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="53,52,59,47,57,52,59,57,53,52" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="34.5" y="93.5352">search</text><!--entity onSubmit--><ellipse cx="533" cy="458" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="529,446,535,441,533,446,535,451,529,446" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="66" x="500" y="487.5352">onSubmit</text><!--entity 更新--><ellipse cx="617" cy="458" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="613,446,619,441,617,446,619,451,613,446" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="603" y="487.5352">更新</text><!--entity 删除--><ellipse cx="684" cy="458" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="680,446,686,441,684,446,686,451,680,446" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="670" y="487.5352">删除</text><!--entity 添加--><ellipse cx="751" cy="458" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="747,446,753,441,751,446,753,451,747,446" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="737" y="487.5352">添加</text><!--entity 字段--><ellipse cx="457" cy="274" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="443" y="304.5352">字段</text><!--entity modalConfig--><ellipse cx="260" cy="274" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="89" x="215.5" y="304.5352">modalConfig</text><!--entity 字段a--><ellipse cx="57" cy="274" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="36" x="39" y="304.5352">字段a</text><!--entity 字段b--><ellipse cx="146" cy="274" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="37" x="127.5" y="304.5352">字段b</text><!--entity 可更新--><ellipse cx="262" cy="642" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="241" y="672.5352">可更新</text><!--entity 可删除--><ellipse cx="359" cy="642" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="338" y="672.5352">可删除</text><!--entity 可添加--><ellipse cx="454" cy="642" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="433" y="672.5352">可添加</text><!--entity submit--><ellipse cx="371" cy="266" fill="#FEFECE" filter="url(#f1u47dl4w94tza)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="367,254,373,249,371,254,373,259,367,254" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="47" x="347.5" y="295.5352">submit</text><!--link submit to onSubmit--><path d="M391.5174,298.3169 C421.5833,333.9506 477.4793,400.1977 509.2723,437.8782 " fill="none" id="submit-onSubmit" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="512.6492,441.8805,509.9024,432.4224,509.4248,438.0591,503.7881,437.5815,512.6492,441.8805" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="461" y="377.5684">提交被选中的数据</text><!--link search to 字段a--><path d="M57,96.3659 C57,138.8213 57,225.1021 57,259.4334 " fill="none" id="search-&#x5B57;&#x6BB5;a" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="57,264.8516,61,255.8516,57,259.8516,53,255.8516,57,264.8516" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link singleConfig to modalConfig--><path d="M260,96.3659 C260,138.8213 260,225.1021 260,259.4334 " fill="none" id="singleConfig-modalConfig" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="260,264.8516,264,255.8516,260,259.8516,256,255.8516,260,264.8516" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="117" x="261" y="170.5684">单视图的模态框配置</text><!--link modalConfig to 可更新--><path d="M260.1563,283.2341 C260.4375,300.6762 261,339.665 261,372.5 C261,372.5 261,372.5 261,551.5 C261,578.413 261.4477,609.8252 261.7439,627.6685 " fill="none" id="modalConfig-&#x53EF;&#x66F4;&#x65B0;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="261.8304,632.7504,265.6766,623.6836,261.7453,627.7511,257.6777,623.8198,261.8304,632.7504" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link modalConfig to 可删除--><path d="M266.1054,283.0549 C276.8471,299.8916 298,337.4914 298,372.5 C298,372.5 298,372.5 298,551.5 C298,585.3868 327.7713,616.0952 345.7169,631.5276 " fill="none" id="modalConfig-&#x53EF;&#x5220;&#x9664;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="349.9992,635.1146,345.6682,626.2691,346.1662,631.904,340.5313,632.402,349.9992,635.1146" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link modalConfig to 可添加--><path d="M269.1965,279.907 C289.2236,293.5735 335,329.5128 335,372.5 C335,372.5 335,372.5 335,551.5 C335,565.6753 331.4124,571.7221 340,583 C359.5203,608.6355 377.4953,597.9766 406,613 C417.9911,619.3199 431.1358,627.3425 440.6331,633.3469 " fill="none" id="modalConfig-&#x53EF;&#x6DFB;&#x52A0;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="444.9814,636.116,439.5388,627.9076,440.764,633.4302,435.2414,634.6554,444.9814,636.116" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 更新 to 可更新--><path d="M596.9275,481.5825 C592.7569,484.5369 588.3156,487.4863 584,490 C469.7054,556.5737 430.8345,552.9139 313,613 C298.1188,620.5882 281.3737,630.3556 271.2601,636.396 " fill="none" id="&#x66F4;&#x65B0;-&#x53EF;&#x66F4;&#x65B0;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="600.9931,478.6423,591.3563,480.6753,596.9416,481.5724,596.0445,487.1576,600.9931,478.6423" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 删除 to 可删除--><path d="M663.6105,481.0825 C659.4653,484.0769 655.1143,487.1689 651,490 C588.5442,532.9771 576.7841,551.1173 508,583 C465.9012,602.5136 450.5014,594.3795 408,613 C393.332,619.4263 377.6061,629.3324 368.035,635.7408 " fill="none" id="&#x5220;&#x9664;-&#x53EF;&#x5220;&#x9664;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="667.6707,478.1339,658.0379,480.1857,663.625,481.0719,662.7388,486.6589,667.6707,478.1339" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 添加 to 可添加--><path d="M730.729,481.2598 C726.5743,484.24 722.1895,487.2814 718,490 C621.2835,552.7591 497.8454,618.8557 463.3307,637.0954 " fill="none" id="&#x6DFB;&#x52A0;-&#x53EF;&#x6DFB;&#x52A0;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="734.7912,478.3142,725.157,480.3592,730.7434,481.2493,729.8532,486.8357,734.7912,478.3142" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+node 单视图{
+    control singleConfig 
+    control search
+    control onSubmit
+    control 更新
+    control 删除
+    control 添加
+node 查询模态框{ 
+    () 字段
+    () modalConfig
+    () 字段a
+    () 字段b
+    () 可更新
+    () 可删除
+    () 可添加
+    control submit
+}
+}
+submit- -> onSubmit:提交被选中的数据
+search - -> 字段a
+singleConfig - -> modalConfig : 单视图的模态框配置
+modalConfig - -> 可更新
+modalConfig - -> 可删除
+modalConfig - -> 可添加
+可更新 -up-> 更新
+可删除 -up-> 删除
+可添加 -up-> 添加
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.3
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><h2 class="mume-header" id="%E5%85%B3%E7%B3%BB%E8%A7%86%E5%9B%BE-%E9%80%9A%E7%94%A8%E6%90%9C%E7%B4%A2%E6%A8%A1%E6%80%81%E6%A1%86">关系视图-通用搜索模态框</h2>
+
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="470px" preserveAspectRatio="none" style="width:1314px;height:470px;" version="1.1" viewBox="0 0 1314 470" width="1314px" zoomAndPan="magnify"><defs><filter height="300%" id="fi7wnvjgxgmns" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><!--cluster 关系视图--><polygon fill="#FFFFFF" filter="url(#fi7wnvjgxgmns)" points="14,26,24,16,1292,16,1292,448,1282,458,14,458,14,26" style="stroke: #000000; stroke-width: 1.5;"></polygon><line style="stroke: #000000; stroke-width: 1.5;" x1="1282" x2="1291" y1="26" y2="17"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="14" x2="1282" y1="26" y2="26"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="1282" x2="1282" y1="26" y2="458"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="56" x="621" y="42.5352">关系视图</text><!--cluster 子查询模态框--><polygon fill="#FFFFFF" filter="url(#fi7wnvjgxgmns)" points="22,144,32,134,425,134,425,340,415,350,22,350,22,144" style="stroke: #000000; stroke-width: 1.5;"></polygon><line style="stroke: #000000; stroke-width: 1.5;" x1="415" x2="424" y1="144" y2="135"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="415" y1="144" y2="144"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="415" x2="415" y1="144" y2="350"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="84" x="177.5" y="160.5352">子查询模态框</text><!--cluster 父查询模态框--><polygon fill="#FFFFFF" filter="url(#fi7wnvjgxgmns)" points="725,144,735,134,1166,134,1166,340,1156,350,725,350,725,144" style="stroke: #000000; stroke-width: 1.5;"></polygon><line style="stroke: #000000; stroke-width: 1.5;" x1="1156" x2="1165" y1="144" y2="135"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="725" x2="1156" y1="144" y2="144"></line><line style="stroke: #000000; stroke-width: 1.5;" x1="1156" x2="1156" y1="144" y2="350"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="84" x="899.5" y="160.5352">父查询模态框</text><!--entity updateData--><ellipse cx="610" cy="305" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="606,293,612,288,610,293,612,298,606,293" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="79" x="570.5" y="334.5352">updateData</text><!--entity parent--><ellipse cx="976" cy="77" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="953.5" y="107.5352">parent</text><!--entity child--><ellipse cx="216" cy="77" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="33" x="199.5" y="107.5352">child</text><!--entity onChildClose--><ellipse cx="72" cy="418" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="68,406,74,401,72,406,74,411,68,406" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="92" x="26" y="447.5352">onChildClose</text><!--entity onParentClose--><ellipse cx="1029" cy="418" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="1025,406,1031,401,1029,406,1031,411,1025,406" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="100" x="979" y="447.5352">onParentClose</text><!--entity 删除--><ellipse cx="701" cy="305" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="697,293,703,288,701,293,703,298,697,293" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="687" y="334.5352">删除</text><!--entity changeChildConfig--><ellipse cx="88" cy="69" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="84,57,90,52,88,57,90,62,84,57" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="132" x="22" y="98.5352">changeChildConfig</text><!--entity onParentSubmit--><ellipse cx="1229" cy="305" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="1225,293,1231,288,1229,293,1231,298,1225,293" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="110" x="1174" y="334.5352">onParentSubmit</text><!--entity onChildSubmit--><ellipse cx="484" cy="305" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="480,293,486,288,484,293,486,298,480,293" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="102" x="433" y="334.5352">onChildSubmit</text><!--entity childConfig--><ellipse cx="77" cy="195" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="79" x="37.5" y="225.5352">childConfig</text><!--entity childClose--><ellipse cx="72" cy="305" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="68,293,74,288,72,293,74,298,68,293" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="36.5" y="334.5352">childClose</text><!--entity update--><ellipse cx="308" cy="195" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="48" x="284" y="225.5352">update</text><!--entity 子字段--><ellipse cx="172" cy="313" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="151" y="343.5352">子字段</text><!--entity 删除子--><ellipse cx="396" cy="187" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="392,175,398,170,396,175,398,180,392,175" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="375" y="216.5352">删除子</text><!--entity childSubmit--><ellipse cx="200" cy="187" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="196,175,202,170,200,175,202,180,196,175" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="81" x="159.5" y="216.5352">childSubmit</text><!--entity parentConfig--><ellipse cx="976" cy="195" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="91" x="930.5" y="225.5352">parentConfig</text><!--entity 父字段--><ellipse cx="923" cy="313" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="902" y="343.5352">父字段</text><!--entity _update_--><ellipse cx="772" cy="195" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="62" x="741" y="225.5352">_update_</text><!--entity parentClose--><ellipse cx="1029" cy="305" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="1025,293,1031,288,1029,293,1031,298,1025,293" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="83" x="987.5" y="334.5352">parentClose</text><!--entity 删除父--><ellipse cx="867" cy="187" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="863,175,869,170,867,175,869,180,863,175" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="846" y="216.5352">删除父</text><!--entity parentSubmit--><ellipse cx="1111" cy="187" fill="#FEFECE" filter="url(#fi7wnvjgxgmns)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><polygon fill="#A80036" points="1107,175,1113,170,1111,175,1113,180,1107,175" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="1064.5" y="216.5352">parentSubmit</text><!--link parent to parentConfig--><path d="M976,86.2593 C976,106.7666 976,156.1362 976,180.6673 " fill="none" id="parent-parentConfig" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="976,185.7838,980,176.7838,976,180.7838,972,176.7838,976,185.7838" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link child to childConfig--><path d="M206.6597,83.7404 C192.3972,94.1329 164.4783,114.8736 142,134 C123.4142,149.8143 103.0629,169.2907 90.1728,181.9176 " fill="none" id="child-childConfig" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="86.4222,185.6048,95.6444,182.1478,89.9877,182.0995,90.036,176.4429,86.4222,185.6048" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link childClose to onChildClose--><path d="M72,337.2413 C72,354.6687 72,378.254 72,396.7318 " fill="none" id="childClose-onChildClose" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="72,401.7988,76,392.7988,72,396.7988,68,392.7988,72,401.7988" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link parentClose to onParentClose--><path d="M1029,337.2413 C1029,354.6687 1029,378.254 1029,396.7318 " fill="none" id="parentClose-onParentClose" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="1029,401.7988,1033,392.7988,1029,396.7988,1025,392.7988,1029,401.7988" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link childConfig to childClose--><path d="M76.6077,204.2593 C75.8911,221.1697 74.343,257.7058 73.2391,283.7569 " fill="none" id="childConfig-childClose" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="73.0246,288.8184,77.4024,279.996,73.2365,283.8229,69.4095,279.657,73.0246,288.8184" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link parentConfig to parentClose--><path d="M980.1588,204.2593 C987.7859,221.2402 1004.3014,258.0106 1016.0114,284.082 " fill="none" id="parentConfig-parentClose" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="1018.1388,288.8184,1018.1003,278.9696,1016.0903,284.2573,1010.8026,282.2473,1018.1388,288.8184" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link parentConfig to 父字段--><path d="M971.8412,204.2593 C962.5915,224.8528 940.2692,274.5515 929.2993,298.9752 " fill="none" id="parentConfig-&#x7236;&#x5B57;&#x6BB5;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="927.1395,303.7838,934.4758,297.2128,929.1881,299.2227,927.1781,293.935,927.1395,303.7838" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link childConfig to 子字段--><path d="M84.4545,204.2593 C101.2421,225.1113 142.0539,275.8038 161.4396,299.8829 " fill="none" id="childConfig-&#x5B50;&#x5B57;&#x6BB5;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="164.5801,303.7838,162.0519,294.265,161.4446,299.8891,155.8204,299.2818,164.5801,303.7838" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link update to updateData--><path d="M317.2482,201.2252 C327.0381,207.6058 343.104,217.4895 358,224 C441.0873,260.3142 468.9465,249.9818 553,284 C557.157,285.6824 561.4212,287.5559 565.6552,289.5182 " fill="none" id="update-updateData" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="570.2313,291.6775,563.7989,284.2193,565.7094,289.5438,560.385,291.4543,570.2313,291.6775" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link _update_ to updateData--><path d="M762.826,201.6823 C740.9978,217.5819 684.9746,258.3889 647.173,285.9234 " fill="none" id="_update_-updateData" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="643.1159,288.8785,652.7457,286.8128,647.1574,285.9347,648.0356,280.3464,643.1159,288.8785" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 删除子 to 删除--><path d="M417.1872,199.0221 C464.3992,208.5945 580.8628,235.6195 667,284 C671.7646,286.6761 676.4813,290.0751 680.8157,293.5965 " fill="none" id="&#x5220;&#x9664;&#x5B50;-&#x5220;&#x9664;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="684.6792,296.8476,680.3685,287.9922,680.8535,293.6282,675.2175,294.1132,684.6792,296.8476" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 删除父 to 删除--><path d="M845.6907,212.1189 C840.3494,216.1691 834.5553,220.3645 829,224 C783.0543,254.0683 761.6575,247.0937 721,284 C720.5924,284.37 720.1888,284.7498 719.7893,285.1382 " fill="none" id="&#x5220;&#x9664;&#x7236;-&#x5220;&#x9664;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="716.3128,288.8379,725.3909,285.0184,719.7368,285.1942,719.561,279.5401,716.3128,288.8379" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link changeChildConfig to childConfig--><path d="M85.7474,101.1638 C83.5182,125.0771 80.1802,160.8857 78.339,180.6361 " fill="none" id="changeChildConfig-childConfig" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="77.8616,185.7576,82.6798,177.1678,78.3257,180.7792,74.7143,176.4251,77.8616,185.7576" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link parentSubmit to onParentSubmit--><path d="M1135.1638,219.1638 C1154.254,238.254 1180.925,264.925 1200.9552,284.9552 " fill="none" id="parentSubmit-onParentSubmit" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="1204.8685,288.8685,1201.333,279.6761,1201.333,285.333,1195.6761,285.333,1204.8685,288.8685" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link childSubmit to onChildSubmit--><path d="M240.6562,215.7555 C246.7515,218.6416 253.003,221.4781 259,224 C332.8586,255.0589 355.5896,251.8961 429,284 C430.9471,284.8515 432.9201,285.7436 434.9033,286.6649 " fill="none" id="childSubmit-onChildSubmit" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="439.5424,288.8625,433.1214,281.3945,435.0238,286.7219,429.6964,288.6243,439.5424,288.8625" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+node "关系视图" {
+control updateData
+() parent
+() child
+control onChildClose 
+control onParentClose
+control 删除
+control changeChildConfig
+control onParentSubmit
+control onChildSubmit
+node "子查询模态框"{
+    () childConfig
+    control childClose
+    () update
+    () 子字段
+    control 删除子
+    control childSubmit
+}
+
+
+ node "父查询模态框"{
+     () parentConfig
+     () 父字段
+     () _update_
+     control parentClose
+     control 删除父
+     control parentSubmit
+ }
+
+
+}
+parent - -> parentConfig
+child - -> childConfig
+childClose - -> onChildClose
+parentClose - ->  onParentClose
+childConfig- -> childClose
+parentConfig - -> parentClose
+parentConfig - -> 父字段
+childConfig - -> 子字段
+update - -> updateData
+_update_ - -> updateData
+删除子 - -> 删除
+删除父 - -> 删除
+changeChildConfig - -> childConfig
+parentSubmit - -> onParentSubmit
+childSubmit - -> onChildSubmit
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.3
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><p>由于关系视图过于复杂,这里额外添加</p>
+
+      </div>
+      
+      
+    </body>
+    
+    
+    
+    
+    
+    
+    
+  </html>

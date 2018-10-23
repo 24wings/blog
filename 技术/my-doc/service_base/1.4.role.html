@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>1.4.role</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/yangjie/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.3.5/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  animation: myfirst 3s;
+  background: beige;
+}
+@keyframes myfirst {
+  from {
+    background: orange;
+    opacity: .1;
+  }
+  to {
+    background: beige;
+    opacity: 1;
+  }
+}
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1 class="mume-header" id="%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90">角色权限</h1>
+
+<p>最高级组织称为Market(市场)。<br>
+一个市场有</p>
+<ul>
+<li>
+<p>组织(Org)</p>
+</li>
+<li>
+<p>员工(Employee)</p>
+</li>
+<li>
+<p>菜单权限(Menu)</p>
+</li>
+<li>
+<p>角色(Role)</p>
+</li>
+<li>
+<p>一个角色可以拥有多个菜单权限</p>
+</li>
+<li>
+<p>一个用户可以拥有多个角色</p>
+</li>
+<li>
+<p>一个组织可以拥有多个用户</p>
+</li>
+</ul>
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="444px" preserveAspectRatio="none" style="width:277px;height:444px;" version="1.1" viewBox="0 0 277 444" width="277px" zoomAndPan="magnify"><defs><filter height="300%" id="fctewkbrilgt6" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><!--class Role--><rect fill="#FEFECE" filter="url(#fctewkbrilgt6)" height="48" id="Role" style="stroke: #A80036; stroke-width: 1.5;" width="57" x="26.5" y="260"></rect><ellipse cx="41.5" cy="276" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M44.4731,281.6431 Q43.8921,281.9419 43.2529,282.0913 Q42.6138,282.2407 41.9082,282.2407 Q39.4014,282.2407 38.0815,280.5889 Q36.7617,278.937 36.7617,275.8159 Q36.7617,272.6865 38.0815,271.0347 Q39.4014,269.3828 41.9082,269.3828 Q42.6138,269.3828 43.2612,269.5322 Q43.9087,269.6816 44.4731,269.9805 L44.4731,272.7031 Q43.8423,272.1221 43.2488,271.8523 Q42.6553,271.5825 42.0244,271.5825 Q40.6797,271.5825 39.9949,272.6492 Q39.3101,273.7158 39.3101,275.8159 Q39.3101,277.9077 39.9949,278.9744 Q40.6797,280.041 42.0244,280.041 Q42.6553,280.041 43.2488,279.7712 Q43.8423,279.5015 44.4731,278.9204 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="25" x="55.5" y="280.5352">Role</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="27.5" x2="82.5" y1="292" y2="292"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="27.5" x2="82.5" y1="300" y2="300"></line><!--class Menu--><rect fill="#FEFECE" filter="url(#fctewkbrilgt6)" height="48" id="Menu" style="stroke: #A80036; stroke-width: 1.5;" width="63" x="23.5" y="385"></rect><ellipse cx="38.5" cy="401" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M41.4731,406.6431 Q40.8921,406.9419 40.2529,407.0913 Q39.6138,407.2407 38.9082,407.2407 Q36.4014,407.2407 35.0815,405.5889 Q33.7617,403.937 33.7617,400.8159 Q33.7617,397.6865 35.0815,396.0347 Q36.4014,394.3828 38.9082,394.3828 Q39.6138,394.3828 40.2612,394.5322 Q40.9087,394.6816 41.4731,394.9805 L41.4731,397.7031 Q40.8423,397.1221 40.2488,396.8523 Q39.6553,396.5825 39.0244,396.5825 Q37.6797,396.5825 36.9949,397.6492 Q36.3101,398.7158 36.3101,400.8159 Q36.3101,402.9077 36.9949,403.9744 Q37.6797,405.041 39.0244,405.041 Q39.6553,405.041 40.2488,404.7712 Q40.8423,404.5015 41.4731,403.9204 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="52.5" y="405.5352">Menu</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="24.5" x2="85.5" y1="417" y2="417"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="24.5" x2="85.5" y1="425" y2="425"></line><!--class User--><rect fill="#FEFECE" filter="url(#fctewkbrilgt6)" height="48" id="User" style="stroke: #A80036; stroke-width: 1.5;" width="58" x="26" y="135"></rect><ellipse cx="41" cy="151" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M43.9731,156.6431 Q43.3921,156.9419 42.7529,157.0913 Q42.1138,157.2407 41.4082,157.2407 Q38.9014,157.2407 37.5815,155.5889 Q36.2617,153.937 36.2617,150.8159 Q36.2617,147.6865 37.5815,146.0347 Q38.9014,144.3828 41.4082,144.3828 Q42.1138,144.3828 42.7612,144.5322 Q43.4087,144.6816 43.9731,144.9805 L43.9731,147.7031 Q43.3423,147.1221 42.7488,146.8523 Q42.1553,146.5825 41.5244,146.5825 Q40.1797,146.5825 39.4949,147.6492 Q38.8101,148.7158 38.8101,150.8159 Q38.8101,152.9077 39.4949,153.9744 Q40.1797,155.041 41.5244,155.041 Q42.1553,155.041 42.7488,154.7712 Q43.3423,154.5015 43.9731,153.9204 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="26" x="55" y="155.5352">User</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="27" x2="83" y1="167" y2="167"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="27" x2="83" y1="175" y2="175"></line><!--class Org--><rect fill="#FEFECE" filter="url(#fctewkbrilgt6)" height="48" id="Org" style="stroke: #A80036; stroke-width: 1.5;" width="53" x="28.5" y="10"></rect><ellipse cx="43.5" cy="26" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M46.4731,31.6431 Q45.8921,31.9419 45.2529,32.0913 Q44.6138,32.2407 43.9082,32.2407 Q41.4014,32.2407 40.0815,30.5889 Q38.7617,28.937 38.7617,25.8159 Q38.7617,22.6865 40.0815,21.0347 Q41.4014,19.3828 43.9082,19.3828 Q44.6138,19.3828 45.2612,19.5322 Q45.9087,19.6816 46.4731,19.9805 L46.4731,22.7031 Q45.8423,22.1221 45.2488,21.8523 Q44.6553,21.5825 44.0244,21.5825 Q42.6797,21.5825 41.9949,22.6492 Q41.3101,23.7158 41.3101,25.8159 Q41.3101,27.9077 41.9949,28.9744 Q42.6797,30.041 44.0244,30.041 Q44.6553,30.041 45.2488,29.7712 Q45.8423,29.5015 46.4731,28.9204 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="21" x="57.5" y="30.5352">Org</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="29.5" x2="80.5" y1="42" y2="42"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="29.5" x2="80.5" y1="50" y2="50"></line><!--link Role to Menu--><path d="M55,321.2235 C55,341.8612 55,366.921 55,384.9727 " fill="none" id="Role-Menu" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="55,308.1013,51,314.1013,55,320.1013,59,314.1013,55,308.1013" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="56" y="351.5684">一个角色多个权限</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="46.025" y="328.4103">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="34" x="16.4313" y="374.1098">0或多</text><!--link User to Role--><path d="M55,196.2235 C55,216.8612 55,241.921 55,259.9727 " fill="none" id="User-Role" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="55,183.1013,51,189.1013,55,195.1013,59,189.1013,55,183.1013" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="56" y="226.5684">一个用户多个角色</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="46.025" y="203.4103">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="34" x="16.4313" y="249.1098">0或多</text><!--link Org to User--><path d="M55,71.2235 C55,91.8612 55,116.921 55,134.9727 " fill="none" id="Org-User" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="55,58.1013,51,64.1013,55,70.1013,59,64.1013,55,58.1013" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="56" y="101.5684">一个组织多个用户</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="46.025" y="78.4103">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="13" x="40.2531" y="124.1098">多</text><!--link Org to Org--><path d="M94.8668,22.3913 C107.0039,22.6709 116.5,26.5404 116.5,34 C116.5,44.0508 99.2607,47.5843 81.55,44.6004 " fill="none" id="Org-Org" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="81.55,23.3996,87.8349,26.9351,93.5157,22.4935,87.2308,18.958,81.55,23.3996" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="143" x="122.5" y="39.0684">一个组织可能有上级组织</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="89.3784" y="16.3695">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="29" x="89.3752" y="42.7894">1或0</text><!--
+@startuml
+Role "1" *- - "0或多"  Menu : 一个角色多个权限
+User "1" *- - "0或多" Role : 一个用户多个角色
+Org "1" *- -"多" User : 一个组织多个用户
+Org "1" *- -"1或0" Org: 一个组织可能有上级组织
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.3
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p>
+      </div>
+      
+      
+    </body>
+    
+    
+    
+    
+    
+    
+    
+  </html>

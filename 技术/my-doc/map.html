@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>map</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/yangjie/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.3.5/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  animation: myfirst 3s;
+  background: beige;
+  border-color: red;
+  border: 5px red;
+}
+@keyframes myfirst {
+  from {
+    background: orange;
+    opacity: .1;
+  }
+  to {
+    background: beige;
+    opacity: 1;
+  }
+}
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1 class="mume-header" id="%E7%9B%AE%E5%BD%95"><a href="../..">目录</a></h1>
+
+<h1 class="mume-header" id="%E5%BC%80%E5%8F%91%E7%BA%B5%E8%A7%88">开发纵览</h1>
+
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>静态</td>
+<td>用例图</td>
+<td>类图</td>
+<td>对象图</td>
+<td>组件图</td>
+</tr>
+<tr>
+<td>动态</td>
+<td>活动图</td>
+<td>泳道图</td>
+<td>时序图</td>
+<td>状态图</td>
+</tr>
+</tbody>
+</table>
+<p><strong>以下是typescript版本前端例子,java同样</strong></p>
+<center><span style="color:red;background:red;width:15px;height:15px;display:inline-block;border-radius:50%;"></span> 红色重构/复用
+<span style="color:red;background:yellow;width:15px;height:15px;display:inline-block;border-radius:50%;"></span> 黄色进行中
+<span style="color:red;background:lightblue;width:15px;height:15px;display:inline-block;border-radius:50%;"></span> 浅蓝色已完成
+</center>
+<h2 class="mume-header" id="centerweb-devcenter"><center>web dev</center></h2>
+
+<h2 class="mume-header" id="centerweb-usercenter"><center>web user</center></h2>
+
+<h2 class="mume-header" id="centerapp-center"><center>app </center></h2>
+
+<h3 class="mume-header" id="%E7%99%BB%E9%99%86%E6%B3%A8%E5%86%8C%E6%A8%A1%E5%9D%97">登陆注册模块</h3>
+
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="622px" preserveAspectRatio="none" style="width:968px;height:622px;" version="1.1" viewBox="0 0 968 622" width="968px" zoomAndPan="magnify"><defs><filter height="300%" id="f8wylfgwv9q72" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><ellipse cx="483.5" cy="20" fill="#000000" filter="url(#f8wylfgwv9q72)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"></ellipse><rect fill="#FFFFFF" filter="url(#f8wylfgwv9q72)" height="516.4629" style="stroke: #000000; stroke-width: 2.0;" width="947" x="10" y="40.4531"></rect><path d="M81,41.4531 L81,49.9414 L71,59.9414 L10,59.9414 " fill="none" style="stroke: #000000; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="13" y="54.9883">登陆注册{</text><rect fill="#FEFECE" filter="url(#f8wylfgwv9q72)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="437.5" y="76.9414"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="447.5" y="98.543">选择批发市场</text><rect fill="#FEFECE" filter="url(#f8wylfgwv9q72)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="449.5" y="146.0742"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="459.5" y="167.6758">登陆页面</text><polygon fill="#FEFECE" filter="url(#f8wylfgwv9q72)" points="32,240.207,76,240.207,88,252.207,76,264.207,32,264.207,20,252.207,32,240.207" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="58" y="274.8418">登陆请求</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="32" y="256.3643">登陆页面</text><path d="M108,301.5732 L108,310.2285 L88,314.2285 L108,318.2285 L108,326.8838 A0,0 0 0 0 108,326.8838 L240,326.8838 A0,0 0 0 0 240,326.8838 L240,311.5732 L230,301.5732 L108,301.5732 A0,0 0 0 0 108,301.5732 " fill="#ADD8E6" filter="url(#f8wylfgwv9q72)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M230,301.5732 L230,311.5732 L240,311.5732 L230,301.5732 " fill="#ADD8E6" style="stroke: #A80036; stroke-width: 1.0;"></path><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="111" x="114" y="319.1416">customer登陆请求</text><rect fill="#FEFECE" filter="url(#f8wylfgwv9q72)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="20" y="297.1621"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="30" y="318.7637">登陆请求</text><polygon fill="#FEFECE" filter="url(#f8wylfgwv9q72)" points="310.5,240.207,354.5,240.207,366.5,252.207,354.5,264.207,310.5,264.207,298.5,252.207,310.5,240.207" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="336.5" y="274.8418">进入注册页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="310.5" y="256.3643">注册按钮</text><path d="M398.5,297.1621 L398.5,313.4727 L378.5,317.4727 L398.5,321.4727 L398.5,337.7832 A0,0 0 0 0 398.5,337.7832 L606.5,337.7832 A0,0 0 0 0 606.5,337.7832 L606.5,307.1621 L596.5,297.1621 L398.5,297.1621 A0,0 0 0 0 398.5,297.1621 " fill="#ADD8E6" filter="url(#f8wylfgwv9q72)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M596.5,297.1621 L596.5,307.1621 L606.5,307.1621 L596.5,297.1621 " fill="#ADD8E6" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="410" cy="309.9727" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="176" x="415.5" y="314.7305">发送customer手机注册验证&#8;码</text><ellipse cx="410" cy="325.2832" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="415.5" y="330.041">验证手机验证码</text><rect fill="#FEFECE" filter="url(#f8wylfgwv9q72)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="286.5" y="300.4063"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="296.5" y="322.0078">验证手机页面</text><path d="M425,377.1943 L425,385.8496 L405,389.8496 L425,393.8496 L425,402.5049 A0,0 0 0 0 425,402.5049 L607,402.5049 A0,0 0 0 0 607,402.5049 L607,387.1943 L597,377.1943 L425,377.1943 A0,0 0 0 0 425,377.1943 " fill="#ADD8E6" filter="url(#f8wylfgwv9q72)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M597,377.1943 L597,387.1943 L607,387.1943 L597,377.1943 " fill="#ADD8E6" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="436.5" cy="390.0049" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="150" x="442" y="394.7627">提交注册customer的信息</text><rect fill="#FEFECE" filter="url(#f8wylfgwv9q72)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="145" x="260" y="372.7832"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="125" x="270" y="394.3848">完善customer信息页面</text><ellipse cx="332.5" cy="451.916" fill="none" filter="url(#f8wylfgwv9q72)" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.0;"></ellipse><ellipse cx="333" cy="452.416" fill="#000000" filter="url(#f8wylfgwv9q72)" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"></ellipse><path d="M739,293.6846 L739,309.9951 L719,313.9951 L739,317.9951 L739,334.3057 A0,0 0 0 0 739,334.3057 L947,334.3057 A0,0 0 0 0 947,334.3057 L947,303.6846 L937,293.6846 L739,293.6846 A0,0 0 0 0 739,293.6846 " fill="#ADD8E6" filter="url(#f8wylfgwv9q72)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M937,293.6846 L937,303.6846 L947,303.6846 L937,293.6846 " fill="#ADD8E6" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="750.5" cy="306.4951" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="176" x="756" y="311.2529">发送customer忘记密码验证码</text><ellipse cx="750.5" cy="321.8057" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="756" y="326.5635">验证手机验证码</text><rect fill="#FEFECE" filter="url(#f8wylfgwv9q72)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="627" y="296.9287"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="637" y="318.5303">验证手机页面</text><path d="M739,373.7168 L739,382.3721 L719,386.3721 L739,390.3721 L739,399.0273 A0,0 0 0 0 739,399.0273 L823,399.0273 A0,0 0 0 0 823,399.0273 L823,383.7168 L813,373.7168 L739,373.7168 A0,0 0 0 0 739,373.7168 " fill="#ADD8E6" filter="url(#f8wylfgwv9q72)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M813,373.7168 L813,383.7168 L823,383.7168 L813,373.7168 " fill="#ADD8E6" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="750.5" cy="386.5273" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="756" y="391.2852">修改密码</text><rect fill="#FEFECE" filter="url(#f8wylfgwv9q72)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="627" y="369.3057"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="637" y="390.9072">忘记密码页面</text><ellipse cx="673" cy="448.4385" fill="none" filter="url(#f8wylfgwv9q72)" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.0;"></ellipse><ellipse cx="673.5" cy="448.9385" fill="#000000" filter="url(#f8wylfgwv9q72)" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"></ellipse><path d="M525.5,581.3271 L525.5,589.9824 L505.5,593.9824 L525.5,597.9824 L525.5,606.6377 A0,0 0 0 0 525.5,606.6377 L790.5,606.6377 A0,0 0 0 0 790.5,606.6377 L790.5,591.3271 L780.5,581.3271 L525.5,581.3271 A0,0 0 0 0 525.5,581.3271 " fill="#ADD8E6" filter="url(#f8wylfgwv9q72)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M780.5,581.3271 L780.5,591.3271 L790.5,591.3271 L780.5,581.3271 " fill="#ADD8E6" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="537" cy="594.1377" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="233" x="542.5" y="598.8955">拉取今日概览信息(买家,卖家的今日统计)</text><rect fill="#FEFECE" filter="url(#f8wylfgwv9q72)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="44" x="461.5" y="576.916"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="24" x="471.5" y="598.5176">首页</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="483.5" x2="483.5" y1="111.0742" y2="146.0742"></line><polygon fill="#A80036" points="479.5,136.0742,483.5,146.0742,487.5,136.0742,483.5,140.0742" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="332.5" x2="332.5" y1="334.5391" y2="372.7832"></line><polygon fill="#A80036" points="328.5,362.7832,332.5,372.7832,336.5,362.7832,332.5,366.7832" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="332.5" x2="332.5" y1="406.916" y2="441.916"></line><polygon fill="#A80036" points="328.5,431.916,332.5,441.916,336.5,431.916,332.5,435.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="673" x2="673" y1="331.0615" y2="369.3057"></line><polygon fill="#A80036" points="669,359.3057,673,369.3057,677,359.3057,673,363.3057" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="673" x2="673" y1="403.4385" y2="438.4385"></line><polygon fill="#A80036" points="669,428.4385,673,438.4385,677,428.4385,673,432.4385" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="54" x2="54" y1="264.207" y2="297.1621"></line><polygon fill="#A80036" points="50,287.1621,54,297.1621,58,287.1621,54,291.1621" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="54" x2="54" y1="331.2949" y2="536.916"></line><polygon fill="#A80036" points="50,526.916,54,536.916,58,526.916,54,530.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="332.5" x2="332.5" y1="264.207" y2="300.4063"></line><polygon fill="#A80036" points="328.5,290.4063,332.5,300.4063,336.5,290.4063,332.5,294.4063" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="88" x2="298.5" y1="252.207" y2="252.207"></line><polygon fill="#A80036" points="288.5,248.207,298.5,252.207,288.5,256.207,292.5,252.207" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="483.5" x2="483.5" y1="180.207" y2="215.207"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="483.5" x2="54" y1="215.207" y2="215.207"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="54" x2="54" y1="215.207" y2="240.207"></line><polygon fill="#A80036" points="50,230.207,54,240.207,58,230.207,54,234.207" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="366.5" x2="673" y1="252.207" y2="252.207"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="673" x2="673" y1="252.207" y2="296.9287"></line><polygon fill="#A80036" points="669,286.9287,673,296.9287,677,286.9287,673,290.9287" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="54" x2="483.5" y1="536.916" y2="536.916"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="483.5" x2="483.5" y1="30" y2="76.9414"></line><polygon fill="#A80036" points="479.5,66.9414,483.5,76.9414,487.5,66.9414,483.5,70.9414" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="483.5" x2="483.5" y1="536.916" y2="576.916"></line><polygon fill="#A80036" points="479.5,566.916,483.5,576.916,487.5,566.916,483.5,570.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+start
+partition 登陆注册{
+:选择批发市场;
+:登陆页面;
+if(登陆页面) then (登陆请求)
+:登陆请求;
+note right #lightblue
+customer登陆请求
+endnote
+elseif (注册按钮) then(进入注册页面)
+:验证手机页面;
+note right #lightblue
+* 发送customer手机注册验证码
+* 验证手机验证码
+endnote
+:完善customer信息页面;
+noteright #lightblue
+* 提交注册customer的信息
+endnote
+stop
+else 
+:验证手机页面;
+noteright #lightblue
+* 发送customer忘记密码验证码
+* 验证手机验证码
+endnote
+:忘记密码页面;
+noteright #lightblue
+* 修改密码
+endnote
+stop
+endif
+}
+:首页;
+noteright #lightblue
+* 拉取今日概览信息(买家,卖家的今日统计)
+endnote
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.6
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><h3 class="mume-header" id="%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%E6%A8%A1%E5%9D%97">个人中心模块</h3>
+
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="733px" preserveAspectRatio="none" style="width:1809px;height:733px;" version="1.1" viewBox="0 0 1809 733" width="1809px" zoomAndPan="magnify"><defs><filter height="300%" id="ftclfkjmrrgct" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><ellipse cx="898" cy="20" fill="#000000" filter="url(#ftclfkjmrrgct)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"></ellipse><rect fill="#FFFFFF" filter="url(#ftclfkjmrrgct)" height="681.9512" style="stroke: #000000; stroke-width: 2.0;" width="1788" x="10" y="40.4531"></rect><path d="M76,41.4531 L76,49.9414 L66,59.9414 L10,59.9414 " fill="none" style="stroke: #000000; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="13" y="54.9883">个人中心</text><path d="M964,129.8301 L964,138.4854 L944,142.4854 L964,146.4854 L964,155.1406 A0,0 0 0 0 964,155.1406 L1107,155.1406 A0,0 0 0 0 1107,155.1406 L1107,139.8301 L1097,129.8301 L964,129.8301 A0,0 0 0 0 964,129.8301 " fill="#ADD8E6" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M1097,129.8301 L1097,139.8301 L1107,139.8301 L1097,129.8301 " fill="#ADD8E6" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="975.5" cy="142.6406" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="111" x="981" y="147.3984">拉取customer信息</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="852" y="125.4189"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="862" y="147.0205">个人中心首页</text><polygon fill="#FEFECE" filter="url(#ftclfkjmrrgct)" points="43.5,219.5518,120.5,219.5518,132.5,231.5518,120.5,243.5518,43.5,243.5518,31.5,231.5518,43.5,219.5518" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="77" x="86" y="254.1865">待处理消息页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="77" x="43.5" y="235.709">待处理消息按钮</text><path d="M154,276.5068 L154,292.8174 L134,296.8174 L154,300.8174 L154,317.1279 A0,0 0 0 0 154,317.1279 L316,317.1279 A0,0 0 0 0 316,317.1279 L316,286.5068 L306,276.5068 L154,276.5068 A0,0 0 0 0 154,276.5068 " fill="#ADD8E6" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M306,276.5068 L306,286.5068 L316,286.5068 L306,276.5068 " fill="#ADD8E6" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="165.5" cy="289.3174" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="130" x="171" y="294.0752">获取指定多种消息类型</text><ellipse cx="165.5" cy="304.6279" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="171" y="309.3857">下拉刷新消息类型</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="104" x="30" y="279.751"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="84" x="40" y="301.3525">待处理消息页面</text><polygon fill="#FEFECE" filter="url(#ftclfkjmrrgct)" points="349,219.5518,415,219.5518,427,231.5518,415,243.5518,349,243.5518,337,231.5518,349,219.5518" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="88" x="386" y="254.1865">进入消息管理页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="349" y="235.709">消息管理按钮</text><path d="M448,276.5068 L448,292.8174 L428,296.8174 L448,300.8174 L448,317.1279 A0,0 0 0 0 448,317.1279 L623,317.1279 A0,0 0 0 0 623,317.1279 L623,286.5068 L613,276.5068 L448,276.5068 A0,0 0 0 0 448,276.5068 " fill="#FFFF00" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M613,276.5068 L613,286.5068 L623,286.5068 L613,276.5068 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="459.5" cy="289.3174" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="143" x="465" y="294.0752">拉取消息种类和消息状态</text><ellipse cx="459.5" cy="304.6279" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="465" y="309.3857">更新消息设置</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="336" y="279.751"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="346" y="301.3525">消息管理页面</text><polygon fill="#FEFECE" filter="url(#ftclfkjmrrgct)" points="656,219.5518,722,219.5518,734,231.5518,722,243.5518,656,243.5518,644,231.5518,656,219.5518" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="88" x="693" y="254.1865">进入修改密码页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="656" y="235.709">修改密码按钮</text><path d="M755,280.918 L755,289.5732 L735,293.5732 L755,297.5732 L755,306.2285 A0,0 0 0 0 755,306.2285 L839,306.2285 A0,0 0 0 0 839,306.2285 L839,290.918 L829,280.918 L755,280.918 A0,0 0 0 0 755,280.918 " fill="#FF0000" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M829,280.918 L829,290.918 L839,290.918 L829,280.918 " fill="#FF0000" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="766.5" cy="293.7285" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="772" y="298.4863">修改密码</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="643" y="276.5068"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="653" y="298.1084">修改密码页面</text><polygon fill="#FEFECE" filter="url(#ftclfkjmrrgct)" points="872,219.5518,938,219.5518,950,231.5518,938,243.5518,872,243.5518,860,231.5518,872,219.5518" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="909" y="254.1865">修改手机页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="872" y="235.709">修改手机按钮</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="950" y="229.2314">成员管理按钮</text><path d="M971,280.918 L971,289.5732 L951,293.5732 L971,297.5732 L971,306.2285 A0,0 0 0 0 971,306.2285 L1055,306.2285 A0,0 0 0 0 1055,306.2285 L1055,290.918 L1045,280.918 L971,280.918 A0,0 0 0 0 971,280.918 " fill="#FFFF00" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M1045,280.918 L1045,290.918 L1055,290.918 L1045,280.918 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="982.5" cy="293.7285" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="988" y="298.4863">验证密码</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="859" y="276.5068"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="869" y="298.1084">验证密码页面</text><path d="M971,345.6396 L971,361.9502 L951,365.9502 L971,369.9502 L971,386.2607 A0,0 0 0 0 971,386.2607 L1153,386.2607 A0,0 0 0 0 1153,386.2607 L1153,355.6396 L1143,345.6396 L971,345.6396 A0,0 0 0 0 971,345.6396 " fill="#FF0000" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M1143,345.6396 L1143,355.6396 L1153,355.6396 L1143,345.6396 " fill="#FF0000" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="982.5" cy="358.4502" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="150" x="988" y="363.208">发送customer手机验证码</text><ellipse cx="982.5" cy="373.7607" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="988" y="378.5186">验证手机验证码</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="859" y="348.8838"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="869" y="370.4854">验证手机页面</text><path d="M959,425.6719 L959,434.3271 L939,438.3271 L959,442.3271 L959,450.9824 A0,0 0 0 0 959,450.9824 L1032,450.9824 A0,0 0 0 0 1032,450.9824 L1032,435.6719 L1022,425.6719 L959,425.6719 A0,0 0 0 0 959,425.6719 " fill="#FFFF00" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M1022,425.6719 L1022,435.6719 L1032,435.6719 L1022,425.6719 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="965" y="443.2402">修改手机</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="871" y="421.2607"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="881" y="442.8623">修改手机</text><path d="M1442,244.5518 L1442,260.8623 L1422,264.8623 L1442,268.8623 L1442,285.1729 A0,0 0 0 0 1442,285.1729 L1552,285.1729 A0,0 0 0 0 1552,285.1729 L1552,254.5518 L1542,244.5518 L1442,244.5518 A0,0 0 0 0 1442,244.5518 " fill="#FFFF00" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M1542,244.5518 L1542,254.5518 L1552,254.5518 L1542,244.5518 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="1453.5" cy="257.3623" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="1459" y="262.1201">列表团队成员</text><ellipse cx="1453.5" cy="272.6729" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1459" y="277.4307">退出团队</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="1330" y="247.7959"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="1340" y="269.3975">成员管理页面</text><polygon fill="#FEFECE" filter="url(#ftclfkjmrrgct)" points="1337.5,320.1729,1414.5,320.1729,1426.5,332.1729,1414.5,344.1729,1337.5,344.1729,1325.5,332.1729,1337.5,320.1729" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="77" x="1337.5" y="336.3301">收到的邀请按钮</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="88" x="1237.5" y="329.8525">进入收到&#8;邀请页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="31" x="1426.5" y="329.8525">+按钮</text><path d="M1295,354.1729 L1295,370.4834 L1275,374.4834 L1295,378.4834 L1295,394.7939 A0,0 0 0 0 1295,394.7939 L1439,394.7939 A0,0 0 0 0 1439,394.7939 L1439,364.1729 L1429,354.1729 L1295,354.1729 A0,0 0 0 0 1295,354.1729 " fill="#FFFF00" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M1429,354.1729 L1429,364.1729 L1439,364.1729 L1429,354.1729 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="1306.5" cy="366.9834" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="1312" y="371.7412">邀请列表</text><ellipse cx="1306.5" cy="382.2939" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="1312" y="387.0518">邀请详情(打开邀请)</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="1183" y="357.417"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="1193" y="379.0186">收到邀请页面</text><path d="M1283,434.2051 L1283,442.8604 L1263,446.8604 L1283,450.8604 L1283,459.5156 A0,0 0 0 0 1283,459.5156 L1400,459.5156 A0,0 0 0 0 1400,459.5156 L1400,444.2051 L1390,434.2051 L1283,434.2051 A0,0 0 0 0 1283,434.2051 " fill="#FFFF00" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M1390,434.2051 L1390,444.2051 L1400,444.2051 L1390,434.2051 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="1294.5" cy="447.0156" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="85" x="1300" y="451.7734">同意/拒绝邀请</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="1195" y="429.7939"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="1205" y="451.3955">邀请详情</text><path d="M1607,354.1729 L1607,370.4834 L1587,374.4834 L1607,378.4834 L1607,394.7939 A0,0 0 0 0 1607,394.7939 L1756,394.7939 A0,0 0 0 0 1756,394.7939 L1756,364.1729 L1746,354.1729 L1607,354.1729 A0,0 0 0 0 1607,354.1729 " fill="#FFFF00" filter="url(#ftclfkjmrrgct)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M1746,354.1729 L1746,364.1729 L1756,364.1729 L1746,354.1729 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="1618.5" cy="366.9834" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="1624" y="371.7412">手机搜索自由人</text><ellipse cx="1618.5" cy="382.2939" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="117" x="1624" y="387.0518">邀请自由人加入团队</text><rect fill="#FEFECE" filter="url(#ftclfkjmrrgct)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="128" x="1459" y="357.417"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="108" x="1469" y="379.0186">进入手机搜索自由人</text><polygon fill="#FEFECE" filter="url(#ftclfkjmrrgct)" points="1376,469.9268,1388,481.9268,1376,493.9268,1364,481.9268,1376,469.9268" style="stroke: #A80036; stroke-width: 1.5;"></polygon><ellipse cx="1376" cy="538.9268" fill="none" filter="url(#ftclfkjmrrgct)" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.0;"></ellipse><ellipse cx="1376.5" cy="539.4268" fill="#000000" filter="url(#ftclfkjmrrgct)" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"></ellipse><polygon fill="#FEFECE" filter="url(#ftclfkjmrrgct)" points="886,76.9414,910,76.9414,922,88.9414,910,100.9414,886,100.9414,874,88.9414,886,76.9414" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="902" y="111.5762">个人中心模块</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="22" x="887" y="93.0986">我的</text><polygon fill="#FEFECE" filter="url(#ftclfkjmrrgct)" points="898,623.4043,910,635.4043,898,647.4043,886,635.4043,898,623.4043" style="stroke: #A80036; stroke-width: 1.5;"></polygon><ellipse cx="898" cy="692.4043" fill="none" filter="url(#ftclfkjmrrgct)" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.0;"></ellipse><ellipse cx="898.5" cy="692.9043" fill="#000000" filter="url(#ftclfkjmrrgct)" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"></ellipse><line style="stroke: #A80036; stroke-width: 1.5;" x1="905" x2="905" y1="310.6396" y2="348.8838"></line><polygon fill="#A80036" points="901,338.8838,905,348.8838,909,338.8838,905,342.8838" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="905" x2="905" y1="383.0166" y2="421.2607"></line><polygon fill="#A80036" points="901,411.2607,905,421.2607,909,411.2607,905,415.2607" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="1229" x2="1229" y1="391.5498" y2="429.7939"></line><polygon fill="#A80036" points="1225,419.7939,1229,429.7939,1233,419.7939,1229,423.7939" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="1325.5" x2="1229" y1="332.1729" y2="332.1729"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="1229" x2="1229" y1="332.1729" y2="357.417"></line><polygon fill="#A80036" points="1225,347.417,1229,357.417,1233,347.417,1229,351.417" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="1426.5" x2="1523" y1="332.1729" y2="332.1729"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="1523" x2="1523" y1="332.1729" y2="357.417"></line><polygon fill="#A80036" points="1519,347.417,1523,357.417,1527,347.417,1523,351.417" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="1229" x2="1229" y1="463.9268" y2="481.9268"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="1229" x2="1364" y1="481.9268" y2="481.9268"></line><polygon fill="#A80036" points="1354,477.9268,1364,481.9268,1354,485.9268,1358,481.9268" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="1523" x2="1523" y1="391.5498" y2="481.9268"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="1523" x2="1388" y1="481.9268" y2="481.9268"></line><polygon fill="#A80036" points="1398,477.9268,1388,481.9268,1398,485.9268,1394,481.9268" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="1376" x2="1376" y1="281.9287" y2="320.1729"></line><polygon fill="#A80036" points="1372,310.1729,1376,320.1729,1380,310.1729,1376,314.1729" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="1376" x2="1376" y1="493.9268" y2="528.9268"></line><polygon fill="#A80036" points="1372,518.9268,1376,528.9268,1380,518.9268,1376,522.9268" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="82" x2="82" y1="243.5518" y2="279.751"></line><polygon fill="#A80036" points="78,269.751,82,279.751,86,269.751,82,273.751" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="82" x2="82" y1="313.8838" y2="598.9268"></line><polygon fill="#A80036" points="78,588.9268,82,598.9268,86,588.9268,82,592.9268" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="382" x2="382" y1="243.5518" y2="279.751"></line><polygon fill="#A80036" points="378,269.751,382,279.751,386,269.751,382,273.751" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="382" x2="382" y1="313.8838" y2="598.9268"></line><polygon fill="#A80036" points="378,588.9268,382,598.9268,386,588.9268,382,592.9268" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="689" x2="689" y1="243.5518" y2="276.5068"></line><polygon fill="#A80036" points="685,266.5068,689,276.5068,693,266.5068,689,270.5068" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="689" x2="689" y1="310.6396" y2="598.9268"></line><polygon fill="#A80036" points="685,588.9268,689,598.9268,693,588.9268,689,592.9268" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="905" x2="905" y1="243.5518" y2="276.5068"></line><polygon fill="#A80036" points="901,266.5068,905,276.5068,909,266.5068,905,270.5068" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="905" x2="905" y1="455.3936" y2="598.9268"></line><polygon fill="#A80036" points="901,588.9268,905,598.9268,909,588.9268,905,592.9268" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="132.5" x2="337" y1="231.5518" y2="231.5518"></line><polygon fill="#A80036" points="327,227.5518,337,231.5518,327,235.5518,331,231.5518" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="427" x2="644" y1="231.5518" y2="231.5518"></line><polygon fill="#A80036" points="634,227.5518,644,231.5518,634,235.5518,638,231.5518" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="734" x2="860" y1="231.5518" y2="231.5518"></line><polygon fill="#A80036" points="850,227.5518,860,231.5518,850,235.5518,854,231.5518" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="898" x2="898" y1="159.5518" y2="194.5518"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="898" x2="82" y1="194.5518" y2="194.5518"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="82" x2="82" y1="194.5518" y2="219.5518"></line><polygon fill="#A80036" points="78,209.5518,82,219.5518,86,209.5518,82,213.5518" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="950" x2="1376" y1="231.5518" y2="231.5518"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="1376" x2="1376" y1="231.5518" y2="247.7959"></line><polygon fill="#A80036" points="1372,237.7959,1376,247.7959,1380,237.7959,1376,241.7959" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="82" x2="905" y1="598.9268" y2="598.9268"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="898" x2="898" y1="100.9414" y2="125.4189"></line><polygon fill="#A80036" points="894,115.4189,898,125.4189,902,115.4189,898,119.4189" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="922" x2="1776" y1="88.9414" y2="88.9414"></line><polygon fill="#A80036" points="1772,352.1729,1776,362.1729,1780,352.1729,1776,356.1729" style="stroke: #A80036; stroke-width: 1.5;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="1776" x2="1776" y1="88.9414" y2="635.4043"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="1776" x2="910" y1="635.4043" y2="635.4043"></line><polygon fill="#A80036" points="920,631.4043,910,635.4043,920,639.4043,916,635.4043" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="898" x2="898" y1="598.9268" y2="623.4043"></line><polygon fill="#A80036" points="894,613.4043,898,623.4043,902,613.4043,898,617.4043" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="898" x2="898" y1="647.4043" y2="682.4043"></line><polygon fill="#A80036" points="894,672.4043,898,682.4043,902,672.4043,898,676.4043" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="898" x2="898" y1="30" y2="76.9414"></line><polygon fill="#A80036" points="894,66.9414,898,76.9414,902,66.9414,898,70.9414" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+start
+partition 个人中心 {
+if(我的) then(个人中心模块)
+:个人中心首页;
+noteright #lightblue
+* 拉取customer信息
+endnote
+if(待处理消息按钮) then(待处理消息页面)
+:待处理消息页面;
+noteright #lightblue 
+* 获取指定多种消息类型
+* 下拉刷新消息类型
+endnote
+elseif(消息管理按钮) then(进入消息管理页面)
+:消息管理页面;
+noteright #yellow
+* 拉取消息种类和消息状态
+* 更新消息设置
+endnote
+elseif(修改密码按钮) then(进入修改密码页面)
+:修改密码页面;
+noteright #red
+* 修改密码
+endnote
+elseif(修改手机按钮) then(修改手机页面)
+:验证密码页面;
+noteright #yellow
+* 验证密码
+endnote
+:验证手机页面;
+noteright #red
+* 发送customer手机验证码
+* 验证手机验证码
+endnote
+:修改手机;
+noteright #yellow
+修改手机
+endnote
+else (成员管理按钮)  
+:成员管理页面;
+noteright #yellow
+* 列表团队成员
+* 退出团队
+endnote
+if(收到的邀请按钮) then(进入收到邀请页面)
+:收到邀请页面;
+noteright #yellow
+* 邀请列表
+* 邀请详情(打开邀请)
+endnote
+:邀请详情;
+noteright #yellow
+* 同意/拒绝邀请
+endnote
+else(+按钮)
+:进入手机搜索自由人;
+noteright #yellow
+* 手机搜索自由人
+* 邀请自由人加入团队
+endnote
+endif
+stop
+endif
+endif
+stop
+
+
+
+}
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.6
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><h2 class="mume-header" id="%E6%88%91%E7%9A%84%E9%92%B1%E5%8C%85">我的钱包</h2>
+
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="622px" preserveAspectRatio="none" style="width:1009px;height:622px;" version="1.1" viewBox="0 0 1009 622" width="1009px" zoomAndPan="magnify"><defs><filter height="300%" id="f1d89us27680bw" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1d89us27680bw)" height="561.4629" style="stroke: #000000; stroke-width: 2.0;" width="988" x="10" y="10.4531"></rect><path d="M48,11.4531 L48,19.9414 L38,29.9414 L10,29.9414 " fill="none" style="stroke: #000000; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="13" y="24.9883">钱包</text><path d="M558,51.3525 L558,60.0078 L538,64.0078 L558,68.0078 L558,76.6631 A0,0 0 0 0 558,76.6631 L668,76.6631 A0,0 0 0 0 668,76.6631 L668,61.3525 L658,51.3525 L558,51.3525 A0,0 0 0 0 558,51.3525 " fill="#FFFF00" filter="url(#f1d89us27680bw)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M658,51.3525 L658,61.3525 L668,61.3525 L658,51.3525 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="569.5" cy="64.1631" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="575" y="68.9209">拉取会员状态</text><rect fill="#FEFECE" filter="url(#f1d89us27680bw)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="470" y="46.9414"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="480" y="68.543">钱包首页</text><polygon fill="#FEFECE" filter="url(#f1d89us27680bw)" points="57,141.0742,123,141.0742,135,153.0742,123,165.0742,57,165.0742,45,153.0742,57,141.0742" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="94" y="175.709">没有实名认证</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="57" y="157.2314">是否实名认证</text><rect fill="#FEFECE" filter="url(#f1d89us27680bw)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="116" x="32" y="198.0293"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="96" x="42" y="219.6309">实名认证协议页面</text><path d="M180,271.5732 L180,280.2285 L160,284.2285 L180,288.2285 L180,296.8838 A0,0 0 0 0 180,296.8838 L329,296.8838 A0,0 0 0 0 329,296.8838 L329,281.5732 L319,271.5732 L180,271.5732 A0,0 0 0 0 180,271.5732 " fill="#FFFF00" filter="url(#f1d89us27680bw)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M319,271.5732 L319,281.5732 L329,281.5732 L319,271.5732 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="191.5" cy="284.3838" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="117" x="197" y="289.1416">实名认证手机验证码</text><rect fill="#FEFECE" filter="url(#f1d89us27680bw)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="140" x="20" y="267.1621"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="120" x="30" y="288.7637">实名认证基本信息页面</text><path d="M144,336.2949 L144,352.6055 L124,356.6055 L144,360.6055 L144,376.916 A0,0 0 0 0 144,376.916 L306,376.916 A0,0 0 0 0 306,376.916 L306,346.2949 L296,336.2949 L144,336.2949 A0,0 0 0 0 144,336.2949 " fill="#FFFF00" filter="url(#f1d89us27680bw)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M296,336.2949 L296,346.2949 L306,346.2949 L296,336.2949 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="155.5" cy="349.1055" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="130" x="161" y="353.8633">提交会员实名认证信息</text><ellipse cx="155.5" cy="364.416" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="161" y="369.1738">验证手机验证码</text><rect fill="#FEFECE" filter="url(#f1d89us27680bw)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="56" y="339.5391"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="66" y="361.1406">支付密码</text><polygon fill="#FEFECE" filter="url(#f1d89us27680bw)" points="367.5,141.0742,422.5,141.0742,434.5,153.0742,422.5,165.0742,367.5,165.0742,355.5,153.0742,367.5,141.0742" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="55" x="367.5" y="157.2314">实名认证中</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="434.5" y="150.7539">实名认证成功</text><rect fill="#FEFECE" filter="url(#f1d89us27680bw)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="349" y="185.0742"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="359" y="206.6758">耐心等待页面</text><path d="M790.5,170.4854 L790.5,179.1406 L770.5,183.1406 L790.5,187.1406 L790.5,195.7959 A0,0 0 0 0 790.5,195.7959 L900.5,195.7959 A0,0 0 0 0 900.5,195.7959 L900.5,180.4854 L890.5,170.4854 L790.5,170.4854 A0,0 0 0 0 790.5,170.4854 " fill="#FFFF00" filter="url(#f1d89us27680bw)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M890.5,170.4854 L890.5,180.4854 L900.5,180.4854 L890.5,170.4854 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="802" cy="183.2959" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="807.5" y="188.0537">拉取钱包现金</text><rect fill="#FEFECE" filter="url(#f1d89us27680bw)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="678.5" y="166.0742"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="688.5" y="187.6758">我的钱包页面</text><polygon fill="#FEFECE" filter="url(#f1d89us27680bw)" points="485,260.207,529,260.207,541,272.207,529,284.207,485,284.207,473,272.207,485,260.207" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="511" y="294.8418">进入支付页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="485" y="276.3643">支付按钮</text><path d="M573,317.1621 L573,333.4727 L553,337.4727 L573,341.4727 L573,357.7832 A0,0 0 0 0 573,357.7832 L696,357.7832 A0,0 0 0 0 696,357.7832 L696,327.1621 L686,317.1621 L573,317.1621 A0,0 0 0 0 573,317.1621 " fill="#FFFF00" filter="url(#f1d89us27680bw)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M686,317.1621 L686,327.1621 L696,327.1621 L686,317.1621 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="584.5" cy="329.9727" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="590" y="334.7305">二维码扫描订单</text><ellipse cx="584.5" cy="345.2832" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="590" y="350.041">支付订单请求</text><rect fill="#FEFECE" filter="url(#f1d89us27680bw)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="461" y="320.4063"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="471" y="342.0078">支付扫码页面</text><polygon fill="#FEFECE" filter="url(#f1d89us27680bw)" points="740,260.207,784,260.207,796,272.207,784,284.207,740,284.207,728,272.207,740,260.207" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="766" y="294.8418">进入线上转账</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="740" y="276.3643">线上转账</text><rect fill="#FEFECE" filter="url(#f1d89us27680bw)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="716" y="317.1621"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="726" y="338.7637">线上转账页面</text><path d="M828,386.2949 L828,402.6055 L808,406.6055 L828,410.6055 L828,426.916 A0,0 0 0 0 828,426.916 L938,426.916 A0,0 0 0 0 938,426.916 L938,396.2949 L928,386.2949 L828,386.2949 A0,0 0 0 0 828,386.2949 " fill="#FFFF00" filter="url(#f1d89us27680bw)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M928,386.2949 L928,396.2949 L938,396.2949 L928,386.2949 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="839.5" cy="399.1055" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="845" y="403.8633">拉取好友商户</text><ellipse cx="839.5" cy="414.416" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="845" y="419.1738">转账申请</text><rect fill="#FEFECE" filter="url(#f1d89us27680bw)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="716" y="389.5391"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="726" y="411.1406">选取好友商户</text><ellipse cx="504" cy="601.916" fill="none" filter="url(#f1d89us27680bw)" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.0;"></ellipse><ellipse cx="504.5" cy="602.416" fill="#000000" filter="url(#f1d89us27680bw)" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"></ellipse><line style="stroke: #A80036; stroke-width: 1.5;" x1="90" x2="90" y1="232.1621" y2="267.1621"></line><polygon fill="#A80036" points="86,257.1621,90,267.1621,94,257.1621,90,261.1621" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="90" x2="90" y1="301.2949" y2="339.5391"></line><polygon fill="#A80036" points="86,329.5391,90,339.5391,94,329.5391,90,333.5391" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="762" x2="762" y1="351.2949" y2="389.5391"></line><polygon fill="#A80036" points="758,379.5391,762,389.5391,766,379.5391,762,383.5391" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="507" x2="507" y1="284.207" y2="320.4063"></line><polygon fill="#A80036" points="503,310.4063,507,320.4063,511,310.4063,507,314.4063" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="507" x2="507" y1="354.5391" y2="501.916"></line><polygon fill="#A80036" points="503,491.916,507,501.916,511,491.916,507,495.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="762" x2="762" y1="284.207" y2="317.1621"></line><polygon fill="#A80036" points="758,307.1621,762,317.1621,766,307.1621,762,311.1621" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="762" x2="762" y1="423.6719" y2="501.916"></line><polygon fill="#A80036" points="758,491.916,762,501.916,766,491.916,762,495.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="541" x2="728" y1="272.207" y2="272.207"></line><polygon fill="#A80036" points="718,268.207,728,272.207,718,276.207,722,272.207" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="724.5" x2="724.5" y1="200.207" y2="235.207"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="724.5" x2="507" y1="235.207" y2="235.207"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="507" x2="507" y1="235.207" y2="260.207"></line><polygon fill="#A80036" points="503,250.207,507,260.207,511,250.207,507,254.207" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="796" x2="973" y1="272.207" y2="272.207"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="973" x2="973" y1="272.207" y2="501.916"></line><polygon fill="#A80036" points="969,491.916,973,501.916,977,491.916,973,495.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="507" x2="973" y1="501.916" y2="501.916"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="90" x2="90" y1="165.0742" y2="198.0293"></line><polygon fill="#A80036" points="86,188.0293,90,198.0293,94,188.0293,90,192.0293" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="90" x2="90" y1="373.6719" y2="551.916"></line><polygon fill="#A80036" points="86,541.916,90,551.916,94,541.916,90,545.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="395" x2="395" y1="165.0742" y2="185.0742"></line><polygon fill="#A80036" points="391,175.0742,395,185.0742,399,175.0742,395,179.0742" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="395" x2="395" y1="219.207" y2="551.916"></line><polygon fill="#A80036" points="391,541.916,395,551.916,399,541.916,395,545.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="135" x2="355.5" y1="153.0742" y2="153.0742"></line><polygon fill="#A80036" points="345.5,149.0742,355.5,153.0742,345.5,157.0742,349.5,153.0742" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="504" x2="504" y1="81.0742" y2="116.0742"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="504" x2="90" y1="116.0742" y2="116.0742"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="90" x2="90" y1="116.0742" y2="141.0742"></line><polygon fill="#A80036" points="86,131.0742,90,141.0742,94,131.0742,90,135.0742" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="434.5" x2="724.5" y1="153.0742" y2="153.0742"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="724.5" x2="724.5" y1="153.0742" y2="166.0742"></line><polygon fill="#A80036" points="720.5,156.0742,724.5,166.0742,728.5,156.0742,724.5,160.0742" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="724.5" x2="724.5" y1="501.916" y2="551.916"></line><polygon fill="#A80036" points="720.5,541.916,724.5,551.916,728.5,541.916,724.5,545.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="90" x2="724.5" y1="551.916" y2="551.916"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="504" x2="504" y1="551.916" y2="591.916"></line><polygon fill="#A80036" points="500,581.916,504,591.916,508,581.916,504,585.916" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+partition 钱包 
+:钱包首页;
+noteright #yellow
+* 拉取会员状态
+endnote
+if(是否实名认证) then(没有实名认证)
+:实名认证协议页面;
+:实名认证基本信息页面;
+noteright #yellow
+* 实名认证手机验证码
+endnote
+:支付密码;
+noteright #yellow
+* 提交会员实名认证信息
+* 验证手机验证码
+endnote
+elseif (实名认证中) then
+:耐心等待页面;
+
+else (实名认证成功)
+:我的钱包页面;
+noteright #yellow
+* 拉取钱包现金
+endnote
+if(支付按钮) then(进入支付页面)
+:支付扫码页面;
+noteright #yellow
+* 二维码扫描订单
+* 支付订单请求
+endnote
+
+elseif(线上转账) then(进入线上转账)
+:线上转账页面;
+:选取好友商户;
+noteright #yellow
+* 拉取好友商户
+* 转账申请
+endnote
+endif
+endif
+}
+stop
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.6
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><ul>
+<li>拉取市场其他商户</li>
+</ul>
+<h3 class="mume-header" id="%E6%88%91%E6%98%AF%E5%8D%96%E5%AE%B6">我是卖家</h3>
+
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="910px" preserveAspectRatio="none" style="width:888px;height:910px;" version="1.1" viewBox="0 0 888 910" width="888px" zoomAndPan="magnify"><defs><filter height="300%" id="f1h1muv4m4246p" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="72" x="407" y="27.4023">我是卖家</text><ellipse cx="443.5" cy="41.1992" fill="#000000" filter="url(#f1h1muv4m4246p)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"></ellipse><rect fill="#FFFFFF" filter="url(#f1h1muv4m4246p)" height="254.0645" style="stroke: #000000; stroke-width: 2.0;" width="867" x="10" y="61.6523"></rect><path d="M76,62.6523 L76,71.1406 L66,81.1406 L10,81.1406 " fill="none" style="stroke: #000000; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="13" y="76.1875">商品管理</text><polygon fill="#FEFECE" filter="url(#f1h1muv4m4246p)" points="33,123.1406,99,123.1406,111,135.1406,99,147.1406,33,147.1406,21,135.1406,33,123.1406" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="88" x="70" y="157.7754">进入商品管理页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="33" y="139.2979">商品管理按钮</text><path d="M132,184.5068 L132,193.1621 L112,197.1621 L132,201.1621 L132,209.8174 A0,0 0 0 0 132,209.8174 L242,209.8174 A0,0 0 0 0 242,209.8174 L242,194.5068 L232,184.5068 L132,184.5068 A0,0 0 0 0 132,184.5068 " fill="#FBFB77" filter="url(#f1h1muv4m4246p)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M232,184.5068 L232,194.5068 L242,194.5068 L232,184.5068 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="143.5" cy="197.3174" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="149" y="202.0752">列出所有商品</text><rect fill="#FEFECE" filter="url(#f1h1muv4m4246p)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="20" y="180.0957"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="30" y="201.6973">商品管理页面</text><polygon fill="#FEFECE" filter="url(#f1h1muv4m4246p)" points="275,123.1406,341,123.1406,353,135.1406,341,147.1406,275,147.1406,263,135.1406,275,123.1406" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="88" x="312" y="157.7754">进入添加商品页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="275" y="139.2979">添加商品按钮</text><path d="M374,180.0957 L374,196.4063 L354,200.4063 L374,204.4063 L374,220.7168 A0,0 0 0 0 374,220.7168 L575,220.7168 A0,0 0 0 0 575,220.7168 L575,190.0957 L565,180.0957 L374,180.0957 A0,0 0 0 0 374,180.0957 " fill="#FBFB77" filter="url(#f1h1muv4m4246p)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M565,180.0957 L565,190.0957 L575,190.0957 L565,180.0957 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="385.5" cy="192.9063" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="130" x="391" y="197.6641">列出所有顶级市场分类</text><ellipse cx="385.5" cy="208.2168" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="169" x="391" y="212.9746">列出指定分类的下级所有分类</text><rect fill="#FEFECE" filter="url(#f1h1muv4m4246p)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="262" y="183.3398"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="272" y="204.9414">添加商品页面</text><polygon fill="#FEFECE" filter="url(#f1h1muv4m4246p)" points="608,123.1406,674,123.1406,686,135.1406,674,147.1406,608,147.1406,596,135.1406,608,123.1406" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="88" x="645" y="157.7754">进入商品详情页面</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="608" y="139.2979">编辑商品按钮</text><path d="M707,180.0957 L707,196.4063 L687,200.4063 L707,204.4063 L707,220.7168 A0,0 0 0 0 707,220.7168 L817,220.7168 A0,0 0 0 0 817,220.7168 L817,190.0957 L807,180.0957 L707,180.0957 A0,0 0 0 0 707,180.0957 " fill="#FFFF00" filter="url(#f1h1muv4m4246p)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M807,180.0957 L807,190.0957 L817,190.0957 L807,180.0957 " fill="#FFFF00" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="718.5" cy="192.9063" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="724" y="197.6641">获取商品详情</text><ellipse cx="718.5" cy="208.2168" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="724" y="212.9746">更新商品信息</text><rect fill="#FEFECE" filter="url(#f1h1muv4m4246p)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="595" y="183.3398"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="605" y="204.9414">商品详情页面</text><rect fill="#FFFFFF" filter="url(#f1h1muv4m4246p)" height="506.2383" style="stroke: #000000; stroke-width: 2.0;" width="823" x="32" y="326.1699"></rect><path d="M98,327.1699 L98,335.6582 L88,345.6582 L32,345.6582 " fill="none" style="stroke: #000000; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="35" y="340.7051">交易开单</text><ellipse cx="443.5" cy="372.6582" fill="#000000" filter="url(#f1h1muv4m4246p)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"></ellipse><path d="M509.5,417.6582 L509.5,441.624 L489.5,445.624 L509.5,449.624 L509.5,473.5898 A0,0 0 0 0 509.5,473.5898 L752.5,473.5898 A0,0 0 0 0 752.5,473.5898 L752.5,427.6582 L742.5,417.6582 L509.5,417.6582 A0,0 0 0 0 509.5,417.6582 " fill="#FBFB77" filter="url(#f1h1muv4m4246p)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M742.5,417.6582 L742.5,427.6582 L752.5,427.6582 L742.5,417.6582 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="521" cy="430.4688" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="526.5" y="435.2266">订单上传</text><ellipse cx="521" cy="445.7793" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="526.5" y="450.5371">订单下载</text><ellipse cx="521" cy="461.0898" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="211" x="526.5" y="465.8477">拉取(或本地storage读取)快捷商品键</text><rect fill="#FEFECE" filter="url(#f1h1muv4m4246p)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="397.5" y="428.5576"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="72" x="407.5" y="450.1592">交易开单页面</text><polygon fill="#FEFECE" filter="url(#f1h1muv4m4246p)" points="54,533.5898,98,533.5898,110,545.5898,98,557.5898,54,557.5898,42,545.5898,54,533.5898" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="66" x="80" y="568.2246">进入&#8;全部商品</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="54" y="549.7471">全部商品</text><path d="M130,594.9561 L130,603.6113 L110,607.6113 L130,611.6113 L130,620.2666 A0,0 0 0 0 130,620.2666 L292,620.2666 A0,0 0 0 0 292,620.2666 L292,604.9561 L282,594.9561 L130,594.9561 A0,0 0 0 0 130,594.9561 " fill="#FBFB77" filter="url(#f1h1muv4m4246p)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M282,594.9561 L282,604.9561 L292,604.9561 L282,594.9561 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="141.5" cy="607.7666" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="130" x="147" y="612.5244">拉取全部商品以及分类</text><rect fill="#FEFECE" filter="url(#f1h1muv4m4246p)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="42" y="590.5449"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="52" y="612.1465">全部商品</text><polygon fill="#FEFECE" filter="url(#f1h1muv4m4246p)" points="324,533.5898,368,533.5898,380,545.5898,368,557.5898,324,557.5898,312,545.5898,324,533.5898" style="stroke: #A80036; stroke-width: 1.5;"></polygon><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="350" y="568.2246">订单生成</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="324" y="549.7471">订单生成</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="22" x="380" y="543.2695">赊销</text><path d="M400,590.5449 L400,614.5107 L380,618.5107 L400,622.5107 L400,646.4766 A0,0 0 0 0 400,646.4766 L588,646.4766 A0,0 0 0 0 588,646.4766 L588,600.5449 L578,590.5449 L400,590.5449 A0,0 0 0 0 400,590.5449 " fill="#FBFB77" filter="url(#f1h1muv4m4246p)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M578,590.5449 L578,600.5449 L588,600.5449 L578,590.5449 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="411.5" cy="603.3555" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="156" x="417" y="608.1133">订单生成并返回二维码链接</text><ellipse cx="411.5" cy="618.666" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="417" y="623.4238">前端生成二维码</text><ellipse cx="411.5" cy="633.9766" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="417" y="638.7344">订单挂起</text><rect fill="#FEFECE" filter="url(#f1h1muv4m4246p)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="312" y="601.4443"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="322" y="623.0459">订单生成</text><path d="M400,681.4766 L400,705.4424 L380,709.4424 L400,713.4424 L400,737.4082 A0,0 0 0 0 400,737.4082 L570,737.4082 A0,0 0 0 0 570,737.4082 L570,691.4766 L560,681.4766 L400,681.4766 A0,0 0 0 0 400,681.4766 " fill="#FF0000" filter="url(#f1h1muv4m4246p)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M560,681.4766 L560,691.4766 L570,691.4766 L560,681.4766 " fill="#FF0000" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="411.5" cy="694.2871" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="417" y="699.0449">列出商户好友</text><ellipse cx="411.5" cy="709.5977" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="138" x="417" y="714.3555">订单推送支付(在线支付)</text><ellipse cx="411.5" cy="724.9082" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="417" y="729.666">线下支付</text><rect fill="#FEFECE" filter="url(#f1h1muv4m4246p)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="312" y="692.376"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="322" y="713.9775">在线支付</text><path d="M696,617.2227 L696,656.499 L676,660.499 L696,664.499 L696,703.7754 A0,0 0 0 0 696,703.7754 L845,703.7754 A0,0 0 0 0 845,703.7754 L845,627.2227 L835,617.2227 L696,617.2227 A0,0 0 0 0 696,617.2227 " fill="#FBFB77" filter="url(#f1h1muv4m4246p)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M835,617.2227 L835,627.2227 L845,627.2227 L835,617.2227 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="707.5" cy="630.0332" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="713" y="634.791">赊销申请</text><ellipse cx="707.5" cy="645.3438" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="713" y="650.1016">拉取赊销申请</text><ellipse cx="707.5" cy="660.6543" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="85" x="713" y="665.4121">赊销同意/拒绝</text><ellipse cx="707.5" cy="675.9648" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="713" y="680.7227">商户赊销金额</text><ellipse cx="707.5" cy="691.2754" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="117" x="713" y="696.0332">订单转赊销订单申请</text><rect fill="#FEFECE" filter="url(#f1h1muv4m4246p)" height="34.1328" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="608" y="643.4326"></rect><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="48" x="618" y="665.0342">赊销申请</text><rect fill="#FFFFFF" filter="url(#f1h1muv4m4246p)" height="56.4883" style="stroke: #000000; stroke-width: 2.0;" width="76" x="405.5" y="842.8613"></rect><path d="M471.5,843.8613 L471.5,852.3496 L461.5,862.3496 L405.5,862.3496 " fill="none" style="stroke: #000000; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="408.5" y="857.3965">我的还款</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="66" x2="66" y1="147.1406" y2="180.0957"></line><polygon fill="#A80036" points="62,170.0957,66,180.0957,70,170.0957,66,174.0957" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="66" x2="66" y1="214.2285" y2="295.7168"></line><polygon fill="#A80036" points="62,285.7168,66,295.7168,70,285.7168,66,289.7168" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="308" x2="308" y1="147.1406" y2="183.3398"></line><polygon fill="#A80036" points="304,173.3398,308,183.3398,312,173.3398,308,177.3398" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="308" x2="308" y1="217.4727" y2="295.7168"></line><polygon fill="#A80036" points="304,285.7168,308,295.7168,312,285.7168,308,289.7168" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="641" x2="641" y1="147.1406" y2="183.3398"></line><polygon fill="#A80036" points="637,173.3398,641,183.3398,645,173.3398,641,177.3398" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="641" x2="641" y1="217.4727" y2="295.7168"></line><polygon fill="#A80036" points="637,285.7168,641,295.7168,645,285.7168,641,289.7168" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="111" x2="263" y1="135.1406" y2="135.1406"></line><polygon fill="#A80036" points="253,131.1406,263,135.1406,253,139.1406,257,135.1406" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="353" x2="596" y1="135.1406" y2="135.1406"></line><polygon fill="#A80036" points="586,131.1406,596,135.1406,586,139.1406,590,135.1406" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="443.5" x2="443.5" y1="51.1992" y2="98.1406"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="443.5" x2="66" y1="98.1406" y2="98.1406"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="66" x2="66" y1="98.1406" y2="123.1406"></line><polygon fill="#A80036" points="62,113.1406,66,123.1406,70,113.1406,66,117.1406" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="686" x2="852" y1="135.1406" y2="135.1406"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="852" x2="852" y1="135.1406" y2="295.7168"></line><polygon fill="#A80036" points="848,285.7168,852,295.7168,856,285.7168,852,289.7168" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="66" x2="852" y1="295.7168" y2="295.7168"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="443.5" x2="443.5" y1="382.6582" y2="428.5576"></line><polygon fill="#A80036" points="439.5,418.5576,443.5,428.5576,447.5,418.5576,443.5,422.5576" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="346" x2="346" y1="635.5771" y2="692.376"></line><polygon fill="#A80036" points="342,682.376,346,692.376,350,682.376,346,686.376" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="76" x2="76" y1="557.5898" y2="590.5449"></line><polygon fill="#A80036" points="72,580.5449,76,590.5449,80,580.5449,76,584.5449" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="76" x2="76" y1="624.6777" y2="812.4082"></line><polygon fill="#A80036" points="72,802.4082,76,812.4082,80,802.4082,76,806.4082" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="346" x2="346" y1="557.5898" y2="601.4443"></line><polygon fill="#A80036" points="342,591.4443,346,601.4443,350,591.4443,346,595.4443" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="346" x2="346" y1="726.5088" y2="812.4082"></line><polygon fill="#A80036" points="342,802.4082,346,812.4082,350,802.4082,346,806.4082" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="110" x2="312" y1="545.5898" y2="545.5898"></line><polygon fill="#A80036" points="302,541.5898,312,545.5898,302,549.5898,306,545.5898" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="443.5" x2="443.5" y1="462.6904" y2="508.5898"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="443.5" x2="76" y1="508.5898" y2="508.5898"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="76" x2="76" y1="508.5898" y2="533.5898"></line><polygon fill="#A80036" points="72,523.5898,76,533.5898,80,523.5898,76,527.5898" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="380" x2="642" y1="545.5898" y2="545.5898"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="642" x2="642" y1="545.5898" y2="643.4326"></line><polygon fill="#A80036" points="638,633.4326,642,643.4326,646,633.4326,642,637.4326" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="642" x2="642" y1="677.5654" y2="812.4082"></line><polygon fill="#A80036" points="638,802.4082,642,812.4082,646,802.4082,642,806.4082" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="76" x2="642" y1="812.4082" y2="812.4082"></line><line style="stroke: #A80036; stroke-width: 1.5;" x1="443.5" x2="443.5" y1="295.7168" y2="362.6582"></line><polygon fill="#A80036" points="439.5,352.6582,443.5,362.6582,447.5,352.6582,443.5,356.6582" style="stroke: #A80036; stroke-width: 1.0;"></polygon><line style="stroke: #A80036; stroke-width: 1.5;" x1="443.5" x2="443.5" y1="812.4082" y2="879.3496"></line><polygon fill="#A80036" points="439.5,869.3496,443.5,879.3496,447.5,869.3496,443.5,873.3496" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+title 我是卖家
+start
+partition 商品管理 {
+if(商品管理按钮) then(进入商品管理页面)
+:商品管理页面;
+noteright 
+* 列出所有商品
+endnote
+elseif(添加商品按钮) then(进入添加商品页面)
+:添加商品页面;
+noteright 
+* 列出所有顶级市场分类
+* 列出指定分类的下级所有分类
+endnote
+elseif(编辑商品按钮) then(进入商品详情页面)
+:商品详情页面;
+noteright #yellow
+* 获取商品详情
+* 更新商品信息
+endnote
+endif
+}
+
+partition 交易开单 {
+start
+:交易开单页面;
+noteright
+* 订单上传
+* 订单下载
+* 拉取(或本地storage读取)快捷商品键
+endnote
+if (全部商品) then(进入全部商品)
+:全部商品;
+noteright
+* 拉取全部商品以及分类
+endnote
+elseif(订单生成) then(订单生成)
+:订单生成;
+noteright
+* 订单生成并返回二维码链接
+* 前端生成二维码
+* 订单挂起
+endnote
+:在线支付;
+noteright #red
+* 列出商户好友
+* 订单推送支付(在线支付)
+* 线下支付
+endnote
+else(赊销)
+:赊销申请;
+noteright
+* 赊销申请
+* 拉取赊销申请
+* 赊销同意/拒绝
+* 商户赊销金额
+* 订单转赊销订单申请
+endnote
+
+endif
+}
+partition 我的还款 {
+
+}
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.6
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><ul>
+<li>是否有商户好友关联手机号,当手机号修改时候是否会影响</li>
+</ul>
+<h3 class="mume-header" id="%E4%B9%B0%E5%AE%B6%E6%A8%A1%E5%9D%97">买家模块</h3>
+
+<h1 class="mume-header" id="%E8%B5%8A%E8%B4%A6%E6%A8%A1%E5%9D%97">赊账模块</h1>
+
+<table>
+<thead>
+<tr>
+<th>表名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AccountPayRecvLog</td>
+<td>收支记录表</td>
+</tr>
+<tr>
+<td>UnPayOrder</td>
+<td>赊账订单</td>
+</tr>
+</tbody>
+</table>
+<p>还款方式</p>
+<ul>
+<li>线上账户</li>
+<li>线下</li>
+</ul>
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="544px" preserveAspectRatio="none" style="width:968px;height:544px;" version="1.1" viewBox="0 0 968 544" width="968px" zoomAndPan="magnify"><defs><filter height="300%" id="fzzdjiyap79zc" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><ellipse cx="754.3441" cy="132.3613" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="48.3441" ry="24.3613" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="70" x="719.3441" y="131.7686">«交易订单»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="38" x="735.3441" y="148.2569">订单A</text><path d="M838.5,97 L838.5,128.5 L803.0977,132.5 L838.5,136.5 L838.5,168.2422 A0,0 0 0 0 838.5,168.2422 L956.5,168.2422 A0,0 0 0 0 956.5,168.2422 L956.5,107 L946.5,97 L838.5,97 A0,0 0 0 0 838.5,97 " fill="#FBFB77" filter="url(#fzzdjiyap79zc)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M946.5,97 L946.5,107 L956.5,107 L946.5,97 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"></path><ellipse cx="850" cy="109.8105" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="86" x="855.5" y="114.5684">卖方名字(冗余)</text><ellipse cx="850" cy="125.1211" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="86" x="855.5" y="129.8789">买方名字(冗余)</text><ellipse cx="850" cy="140.4316" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="38" x="855.5" y="145.1895">卖方id</text><ellipse cx="850" cy="155.7422" fill="#000000" rx="2.5" ry="2.5" style="stroke: #000000; stroke-width: 0.0;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="38" x="855.5" y="160.5">买方id</text><ellipse cx="607.533" cy="22.659" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="56.033" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="570.033" y="27.4031">订单项目A1</text><ellipse cx="754.533" cy="22.659" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="56.033" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="717.033" y="27.4031">订单项目A2</text><ellipse cx="901.533" cy="22.659" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="56.033" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="864.033" y="27.4031">订单项目A3</text><ellipse cx="712.6073" cy="364.086" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="71.6073" ry="26.086" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="663.6073" y="360.9157">«交易支付确认»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="94" x="665.6073" y="377.404">线上支付确认A</text><ellipse cx="139.6188" cy="22.659" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="54.6188" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="103.1188" y="27.4031">订单项目B1</text><ellipse cx="283.6765" cy="132.2824" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="48.1765" ry="24.2824" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="70" x="248.6765" y="131.8142">«赊账订单»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="36" x="265.6765" y="148.3025">订单B</text><ellipse cx="283.6188" cy="22.659" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="54.6188" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="247.1188" y="27.4031">订单项目B2</text><ellipse cx="427.6188" cy="22.659" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="54.6188" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="391.1188" y="27.4031">订单项目B3</text><ellipse cx="283.5542" cy="253.0587" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="68.5542" ry="25.0587" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="234.5542" y="251.3936">«还款支出记录»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="247.0542" y="267.8818">支出记录B2</text><ellipse cx="506.5542" cy="253.0587" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="68.5542" ry="25.0587" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="457.5542" y="251.3936">«还款支出记录»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="470.0542" y="267.8818">支出记录B1</text><ellipse cx="888.3056" cy="364.1433" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="68.8056" ry="25.1433" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="839.3056" y="362.3511">«交易支出记录»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="850.8056" y="378.8394">支出记录A1</text><ellipse cx="725.3056" cy="253.1433" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="68.8056" ry="25.1433" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="676.3056" y="251.3511">«交易支出记录»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="687.8056" y="267.8394">支出记录A3</text><ellipse cx="94.5542" cy="253.0587" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="68.5542" ry="25.0587" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="45.5542" y="251.3936">«还款支出记录»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="73" x="58.0542" y="267.8818">支出记录B3</text><ellipse cx="77.276" cy="363.9746" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="71.276" ry="25.9746" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="98" x="28.276" y="360.9639">«赊账支付确认»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="92" x="31.276" y="377.4521">线上支付确认B</text><ellipse cx="283.6724" cy="363.7709" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="99.6724" ry="25.7709" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="126" x="220.6724" y="359.4877">«申请线下支出记录»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="140" x="213.6724" y="375.976">申请线下还款支出记录</text><path d="M418,351.5 L418,360 L383.0469,364 L418,368 L418,376.8105 A0,0 0 0 0 418,376.8105 L517,376.8105 A0,0 0 0 0 517,376.8105 L517,361.5 L507,351.5 L418,351.5 A0,0 0 0 0 418,351.5 " fill="#FBFB77" filter="url(#fzzdjiyap79zc)" style="stroke: #A80036; stroke-width: 1.0;"></path><path d="M507,351.5 L507,361.5 L517,361.5 L507,351.5 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 1.0;"></path><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="424" y="369.0684">老板线下支付</text><!--entity 会员A--><ellipse cx="283.5" cy="460" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><path d="M283.5,468 L283.5,495 M270.5,476 L296.5,476 M283.5,495 L270.5,510 M283.5,495 L296.5,510 " fill="none" filter="url(#fzzdjiyap79zc)" style="stroke: #A80036; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="38" x="264.5" y="530.5352">会员A</text><!--entity 会员B--><ellipse cx="800.5" cy="460" fill="#FEFECE" filter="url(#fzzdjiyap79zc)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><path d="M800.5,468 L800.5,495 M787.5,476 L813.5,476 M800.5,495 L787.5,510 M800.5,495 L813.5,510 " fill="none" filter="url(#fzzdjiyap79zc)" style="stroke: #A80036; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="36" x="782.5" y="530.5352">会员B</text><!--link 订单项目A1 to 订单A--><path d="M625.8204,36.2092 C650.1016,54.3787 693.3164,86.7164 722.9128,108.8633 " fill="none" id="&#x8BA2;&#x5355;&#x9879;&#x76EE;A1-&#x8BA2;&#x5355;A" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="727.1768,112.0541,722.3675,103.4593,723.1736,109.0584,717.5744,109.8645,727.1768,112.0541" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单项目A2 to 订单A--><path d="M754.5,37.3351 C754.5,53.9861 754.5,81.4362 754.5,102.587 " fill="none" id="&#x8BA2;&#x5355;&#x9879;&#x76EE;A2-&#x8BA2;&#x5355;A" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="754.5,107.8181,758.5,98.8181,754.5,102.8181,750.5,98.8181,754.5,107.8181" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单项目A3 to 订单A--><path d="M883.1796,36.2092 C858.8984,54.3787 815.6836,86.7164 786.0872,108.8633 " fill="none" id="&#x8BA2;&#x5355;&#x9879;&#x76EE;A3-&#x8BA2;&#x5355;A" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="781.8232,112.0541,791.4256,109.8645,785.8264,109.0584,786.6325,103.4593,781.8232,112.0541" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单项目B1 to 订单B--><path d="M157.4465,36.2092 C181.2322,54.3787 223.5651,86.7164 252.5575,108.8633 " fill="none" id="&#x8BA2;&#x5355;&#x9879;&#x76EE;B1-&#x8BA2;&#x5355;B" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="256.7344,112.0541,252.0107,103.412,252.7611,109.0188,247.1542,109.7692,256.7344,112.0541" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单项目B2 to 订单B--><path d="M283.5,37.3351 C283.5,53.9861 283.5,81.4362 283.5,102.587 " fill="none" id="&#x8BA2;&#x5355;&#x9879;&#x76EE;B2-&#x8BA2;&#x5355;B" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="283.5,107.8181,287.5,98.8181,283.5,102.8181,279.5,98.8181,283.5,107.8181" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单项目B3 to 订单B--><path d="M409.5535,36.2092 C385.7678,54.3787 343.4349,86.7164 314.4425,108.8633 " fill="none" id="&#x8BA2;&#x5355;&#x9879;&#x76EE;B3-&#x8BA2;&#x5355;B" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="310.2656,112.0541,319.8458,109.7692,314.2389,109.0188,314.9893,103.412,310.2656,112.0541" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单A to 支出记录A1--><path d="M771.9159,160.5723 C783.577,179.5149 799.1732,205.1339 812.5,228 C834.9724,266.5579 860.0484,311.9095 875.0363,339.2795 " fill="none" id="&#x8BA2;&#x5355;A-&#x652F;&#x51FA;&#x8BB0;&#x5F55;A1" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="769.0397,155.906,770.357,165.6664,771.6633,160.1624,777.1672,161.4687,769.0397,155.906" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单B to 支出记录B1--><path d="M321.7499,153.1687 C362.6226,175.2546 427.0498,210.0684 468.0132,232.2033 " fill="none" id="&#x8BA2;&#x5355;B-&#x652F;&#x51FA;&#x8BB0;&#x5F55;B1" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="316.8854,150.5401,322.9017,158.3378,321.2843,152.9171,326.7049,151.2996,316.8854,150.5401" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单B to 支出记录B2--><path d="M283.5,162.4251 C283.5,182.5895 283.5,208.8838 283.5,227.9431 " fill="none" id="&#x8BA2;&#x5355;B-&#x652F;&#x51FA;&#x8BB0;&#x5F55;B2" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="283.5,157.1757,279.5,166.1757,283.5,162.1757,287.5,166.1757,283.5,157.1757" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 支出记录B2 to 申请线下还款支出记录--><path d="M283.5,283.337 C283.5,300.3761 283.5,321.4291 283.5,337.7539 " fill="none" id="&#x652F;&#x51FA;&#x8BB0;&#x5F55;B2-&#x7533;&#x8BF7;&#x7EBF;&#x4E0B;&#x8FD8;&#x6B3E;&#x652F;&#x51FA;&#x8BB0;&#x5F55;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="283.5,278.1876,279.5,287.1876,283.5,283.1876,287.5,287.1876,283.5,278.1876" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 申请线下还款支出记录 to 会员A--><path d="M283.5,395.5147 C283.5,411.9184 283.5,432.1865 283.5,449.8648 " fill="none" id="&#x7533;&#x8BF7;&#x7EBF;&#x4E0B;&#x8FD8;&#x6B3E;&#x652F;&#x51FA;&#x8BB0;&#x5F55;-&#x4F1A;&#x5458;A" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="283.5,390.1092,279.5,399.1092,283.5,395.1092,287.5,399.1092,283.5,390.1092" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 支出记录B1 to 会员A--><path d="M524.1279,282.0067 C539.5665,311.5527 556.4009,357.5198 534.5,390 C480.4975,470.0885 351.4543,487.0022 302.6442,490.5587 " fill="none" id="&#x652F;&#x51FA;&#x8BB0;&#x5F55;B1-&#x4F1A;&#x5458;A" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="521.6682,277.4103,522.3882,287.2328,524.0275,281.8187,529.4416,283.458,521.6682,277.4103" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 支出记录A1 to 会员B--><path d="M868.8183,392.5161 C853.8229,414.2424 833.3335,443.9287 818.7136,465.1109 " fill="none" id="&#x652F;&#x51FA;&#x8BB0;&#x5F55;A1-&#x4F1A;&#x5458;B" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="871.7407,388.2819,863.3363,393.4166,868.9004,392.3969,869.9202,397.961,871.7407,388.2819" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 线上支付确认A to 会员B--><path d="M733.0112,393.718 C747.9405,415.3485 767.9738,444.374 782.3289,465.1725 " fill="none" id="&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;&#x786E;&#x8BA4;A-&#x4F1A;&#x5458;B" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="730.0966,389.4951,731.9169,399.1743,732.9368,393.6101,738.5009,394.63,730.0966,389.4951" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 支出记录A3 to 线上支付确认A--><path d="M721.947,283.337 C719.9515,300.3761 717.4858,321.4291 715.5739,337.7539 " fill="none" id="&#x652F;&#x51FA;&#x8BB0;&#x5F55;A3-&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;&#x786E;&#x8BA4;A" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="722.5501,278.1876,717.5302,286.6611,721.9684,283.1536,725.4758,287.5919,722.5501,278.1876" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单A to 支出记录A3--><path d="M747.4308,161.8736 C742.5714,182.0656 736.186,208.5978 731.5595,227.8218 " fill="none" id="&#x8BA2;&#x5355;A-&#x652F;&#x51FA;&#x8BB0;&#x5F55;A3" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="748.6314,156.885,742.6364,164.6991,747.4614,161.7462,750.4143,166.5711,748.6314,156.885" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 线上支付确认B to 会员A--><path d="M118.3177,389.2634 C162.4983,416.6082 231.0732,459.0514 264.2386,479.5785 " fill="none" id="&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;&#x786E;&#x8BA4;B-&#x4F1A;&#x5458;A" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="113.8545,386.5009,119.4022,394.6387,118.106,389.1323,123.6124,387.8362,113.8545,386.5009" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 支出记录B3 to 线上支付确认B--><path d="M89.8538,283.337 C87.2442,300.3761 84.0199,321.4291 81.5197,337.7539 " fill="none" id="&#x652F;&#x51FA;&#x8BB0;&#x5F55;B3-&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;&#x786E;&#x8BA4;B" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="90.6424,278.1876,85.3259,286.4782,89.8854,283.13,93.2337,287.6895,90.6424,278.1876" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 订单B to 支出记录B3--><path d="M248.6358,154.7282 C214.4252,176.5397 162.5818,209.5933 128.6273,231.2416 " fill="none" id="&#x8BA2;&#x5355;B-&#x652F;&#x51FA;&#x8BB0;&#x5F55;B3" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="253.1339,151.8604,243.3947,153.3262,248.918,154.5485,247.6957,160.0717,253.1339,151.8604" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+(订单A)<<交易订单>>
+note right
+* 卖方名字(冗余)
+* 买方名字(冗余)
+* 卖方id
+* 买方id
+endnote
+
+(订单项目A1)- ->(订单A)
+(订单项目A2)- ->(订单A)
+(订单项目A3)- ->(订单A)
+
+(线上支付确认A)<<交易支付确认>>
+
+(订单项目B1)- ->(订单B)
+(订单项目B2)- ->(订单B)
+(订单项目B3)- ->(订单B)
+(订单B)<<赊账订单>>
+(支出记录B2)<<还款支出记录>>
+(支出记录B1)<<还款支出记录>>
+
+(支出记录A1)<<交易支出记录>>
+(支出记录A3)<<交易支出记录>>
+(支出记录B3)<<还款支出记录>>
+
+(线上支付确认B)<<赊账支付确认>>
+
+
+(申请线下还款支出记录)<<申请线下支出记录>>
+
+note right
+老板线下支付
+endnote
+(订单A)<- - (支出记录A1)
+(订单B)<- - (支出记录B1)
+(订单B)<- - (支出记录B2)
+(支出记录B2)<- -(申请线下还款支出记录)
+(申请线下还款支出记录) <- - 会员A
+(支出记录B1)<- -会员A
+会员B-up-> (支出记录A1)
+会员B-up->(线上支付确认A)
+线上支付确认A-up->(支出记录A3)
+支出记录A3 -up->(订单A)
+会员A -up->(线上支付确认B)
+(线上支付确认B)-up->(支出记录B3)
+(支出记录B3)-up->订单B
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.6
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><ol>
+<li>申请线下交易记录和申请线下还款记录  是否可以融为一张表 线下申请支出记录表</li>
+<li>交易支出记录和还款支出记录是否可以融为一张表, 是否可以融为一张表 ,支出记录</li>
+<li>交易订单和赊账订单是否可以融为一张表,订单表.</li>
+<li>缺少交易的现金</li>
+</ol>
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="985px" preserveAspectRatio="none" style="width:911px;height:985px;" version="1.1" viewBox="0 0 911 985" width="911px" zoomAndPan="magnify"><defs><filter height="300%" id="f1g6nt6rgmti46" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="177" x="371" y="17.4023">订单/赊欠订单 的实体</text><!--class Account--><rect fill="#FEFECE" filter="url(#f1g6nt6rgmti46)" height="112.7754" id="Account" style="stroke: #A80036; stroke-width: 1.5;" width="229" x="671.5" y="571.6992"></rect><ellipse cx="759.25" cy="587.6992" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M762.2231,593.3423 Q761.6421,593.6411 761.0029,593.7905 Q760.3638,593.9399 759.6582,593.9399 Q757.1514,593.9399 755.8315,592.2881 Q754.5117,590.6362 754.5117,587.5151 Q754.5117,584.3857 755.8315,582.7339 Q757.1514,581.082 759.6582,581.082 Q760.3638,581.082 761.0112,581.2314 Q761.6587,581.3809 762.2231,581.6797 L762.2231,584.4023 Q761.5923,583.8213 760.9988,583.5515 Q760.4053,583.2817 759.7744,583.2817 Q758.4297,583.2817 757.7449,584.3484 Q757.0601,585.415 757.0601,587.5151 Q757.0601,589.6069 757.7449,590.6736 Q758.4297,591.7402 759.7744,591.7402 Q760.4053,591.7402 760.9988,591.4705 Q761.5923,591.2007 762.2231,590.6196 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="45" x="779.75" y="592.2344">Account</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="672.5" x2="899.5" y1="603.6992" y2="603.6992"></line><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="53" x="677.5" y="618.334">accountId</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="217" x="677.5" y="631.2891">accountType #账户类型:会员账户,市场账户</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="29" x="677.5" y="644.2441">name</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="59" x="677.5" y="657.1992">createTime</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="33" x="677.5" y="670.1543">status</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="672.5" x2="899.5" y1="676.4746" y2="676.4746"></line><!--class AccountRecvPay--><rect fill="#FEFECE" filter="url(#f1g6nt6rgmti46)" height="268.2363" id="AccountRecvPay" style="stroke: #A80036; stroke-width: 1.5;" width="408" x="228" y="494.1992"></rect><ellipse cx="355.75" cy="510.1992" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M358.7231,515.8423 Q358.1421,516.1411 357.5029,516.2905 Q356.8638,516.4399 356.1582,516.4399 Q353.6514,516.4399 352.3315,514.7881 Q351.0117,513.1362 351.0117,510.0151 Q351.0117,506.8857 352.3315,505.2339 Q353.6514,503.582 356.1582,503.582 Q356.8638,503.582 357.5112,503.7314 Q358.1587,503.8809 358.7231,504.1797 L358.7231,506.9023 Q358.0923,506.3213 357.4988,506.0515 Q356.9053,505.7817 356.2744,505.7817 Q354.9297,505.7817 354.2449,506.8484 Q353.5601,507.915 353.5601,510.0151 Q353.5601,512.1069 354.2449,513.1736 Q354.9297,514.2402 356.2744,514.2402 Q356.9053,514.2402 357.4988,513.9705 Q358.0923,513.7007 358.7231,513.1196 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="92" x="376.25" y="514.7344">AccountRecvPay</text><rect fill="#FFFFFF" height="16.1328" style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" width="50" x="589" y="491.1992"></rect><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="48" x="590" y="503.8008">收支记录</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="229" x2="635" y1="526.1992" y2="526.1992"></line><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92" x="234" y="540.834">recvPayId:integer</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="94" x="234" y="553.7891">accountId:integer</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="108" x="234" y="566.7441">accountName:string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="107" x="234" y="579.6992">toAccountId:integer</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="121" x="234" y="592.6543">toAccountName:string</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="234" y="605.6094">io:int #-1为支出,1为收入</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="81" x="234" y="618.5645">amt:BigDecimal</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="86" x="234" y="631.5195">createTime:Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="81" x="234" y="644.4746">orderId:integer</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="127" x="234" y="657.4297">subjectId:intege #科目id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="148" x="234" y="670.3848">orderType:string  #订单类型</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="166" x="234" y="683.3398">beforeAccountAmt: BigDecimal</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="156" x="234" y="696.2949">afterAccoumtAmt:BigDecimal</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="180" x="234" y="709.25">beforeToAccountAmt: BigDecimal</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="170" x="234" y="722.2051">afterToAccoumtAmt:BigDecimal</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="145" x="234" y="735.1602">fromConfirmPaymentLogId</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="229" x2="635" y1="741.4805" y2="741.4805"></line><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="396" x="234" y="756.1152">paymentType:string #支付方式:线上账户,(支付宝,微信,保留),线上确认支付,线下</text><!--class Order--><rect fill="#FEFECE" filter="url(#f1g6nt6rgmti46)" height="177.5508" id="Order" style="stroke: #A80036; stroke-width: 1.5;" width="338" x="6" y="255.1992"></rect><ellipse cx="127.75" cy="271.1992" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M130.7231,276.8423 Q130.1421,277.1411 129.5029,277.2905 Q128.8638,277.4399 128.1582,277.4399 Q125.6514,277.4399 124.3315,275.7881 Q123.0117,274.1362 123.0117,271.0151 Q123.0117,267.8857 124.3315,266.2339 Q125.6514,264.582 128.1582,264.582 Q128.8638,264.582 129.5112,264.7314 Q130.1587,264.8809 130.7231,265.1797 L130.7231,267.9023 Q130.0923,267.3213 129.4988,267.0515 Q128.9053,266.7817 128.2744,266.7817 Q126.9297,266.7817 126.2449,267.8484 Q125.5601,268.915 125.5601,271.0151 Q125.5601,273.1069 126.2449,274.1736 Q126.9297,275.2402 128.2744,275.2402 Q128.9053,275.2402 129.4988,274.9705 Q130.0923,274.7007 130.7231,274.1196 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="34" x="148.25" y="275.7344">Order</text><rect fill="#FFFFFF" height="16.1328" style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" width="50" x="297" y="252.1992"></rect><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="48" x="298" y="264.8008">交易订单</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="343" y1="287.1992" y2="287.1992"></line><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="105" x="12" y="301.834">title:string  订单标题</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="84" x="12" y="314.7891">orderId: integer</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="123" x="12" y="327.7441">orderNo:string #订单号</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="138" x="12" y="340.6992">buyerId: integer #创建者id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="125" x="12" y="353.6543">sellerId: integer #卖方id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="143" x="12" y="366.6094">createTime: Date #交易时间</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="122" x="12" y="379.5645">status:string #订单状态</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="139" x="12" y="392.5195">totalAmt:BigDecimal #总计</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="326" x="12" y="405.4746">orderType:string #交易订单bizOrder或赊账订单paymentOrder</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="165" x="12" y="418.4297">finishTime:Date #关闭/完结时间</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="343" y1="424.75" y2="424.75"></line><!--class OrderItem--><rect fill="#FEFECE" filter="url(#f1g6nt6rgmti46)" height="138.6855" id="OrderItem" style="stroke: #A80036; stroke-width: 1.5;" width="141" x="379.5" y="274.6992"></rect><ellipse cx="417" cy="290.6992" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M419.9731,296.3423 Q419.3921,296.6411 418.7529,296.7905 Q418.1138,296.9399 417.4082,296.9399 Q414.9014,296.9399 413.5815,295.2881 Q412.2617,293.6362 412.2617,290.5151 Q412.2617,287.3857 413.5815,285.7339 Q414.9014,284.082 417.4082,284.082 Q418.1138,284.082 418.7612,284.2314 Q419.4087,284.3809 419.9731,284.6797 L419.9731,287.4023 Q419.3423,286.8213 418.7488,286.5515 Q418.1553,286.2817 417.5244,286.2817 Q416.1797,286.2817 415.4949,287.3484 Q414.8101,288.415 414.8101,290.5151 Q414.8101,292.6069 415.4949,293.6736 Q416.1797,294.7402 417.5244,294.7402 Q418.1553,294.7402 418.7488,294.4705 Q419.3423,294.2007 419.9731,293.6196 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="59" x="436" y="295.2344">OrderItem</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="380.5" x2="519.5" y1="306.6992" y2="306.6992"></line><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="29" x="385.5" y="321.334">name</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="57" x="385.5" y="334.2891">categoryId</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="80" x="385.5" y="347.2441">categoryArrStr</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="129" x="385.5" y="360.1992">valuetionType #计价方式</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="112" x="385.5" y="373.1543">weightPrice#计重单价</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="105" x="385.5" y="386.1094">piecePrice#计件单价</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="60" x="385.5" y="399.0645">count#小结</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="380.5" x2="519.5" y1="405.3848" y2="405.3848"></line><!--class ConfirmPaymentLog--><rect fill="#FEFECE" filter="url(#f1g6nt6rgmti46)" height="151.6406" id="ConfirmPaymentLog" style="stroke: #A80036; stroke-width: 1.5;" width="262" x="64" y="823.1992"></rect><ellipse cx="86.2" cy="839.1992" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M89.1731,844.8423 Q88.5921,845.1411 87.9529,845.2905 Q87.3138,845.4399 86.6082,845.4399 Q84.1014,845.4399 82.7815,843.7881 Q81.4617,842.1362 81.4617,839.0151 Q81.4617,835.8857 82.7815,834.2339 Q84.1014,832.582 86.6082,832.582 Q87.3138,832.582 87.9612,832.7314 Q88.6087,832.8809 89.1731,833.1797 L89.1731,835.9023 Q88.5423,835.3213 87.9488,835.0515 Q87.3553,834.7817 86.7244,834.7817 Q85.3797,834.7817 84.6949,835.8484 Q84.0101,836.915 84.0101,839.0151 Q84.0101,841.1069 84.6949,842.1736 Q85.3797,843.2402 86.7244,843.2402 Q87.3553,843.2402 87.9488,842.9705 Q88.5423,842.7007 89.1731,842.1196 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="114" x="101.8" y="843.7344">ConfirmPaymentLog</text><rect fill="#FFFFFF" height="16.1328" style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" width="98" x="231" y="820.1992"></rect><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="96" x="232" y="832.8008">请求确认还款记录</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="65" x2="325" y1="855.1992" y2="855.1992"></line><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="159" x="70" y="869.834">confrmPaymentLogId:number</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="84" x="70" y="882.7891">orderId: integer</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="70" y="895.7441">isConfirm:boolean</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="86" x="70" y="908.6992">createTime:Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="98" x="70" y="921.6543">isDelete:boolean #</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="250" x="70" y="934.6094">accountPayrecvId:number # 同意后生成的支出id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="206" x="70" y="947.5645">paymentWay:string  #还款方式 线下现金</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="250" x="70" y="960.5195">orderType:string  #还款类型 交易订单或赊账还款</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="65" x2="325" y1="966.8398" y2="966.8398"></line><!--class ConfirmOnlineOrder--><rect fill="#FEFECE" filter="url(#f1g6nt6rgmti46)" height="164.5957" id="ConfirmOnlineOrder" style="stroke: #A80036; stroke-width: 1.5;" width="262" x="252" y="29.1992"></rect><ellipse cx="284.55" cy="45.1992" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"></ellipse><path d="M287.5231,50.8423 Q286.9421,51.1411 286.3029,51.2905 Q285.6638,51.4399 284.9582,51.4399 Q282.4514,51.4399 281.1315,49.7881 Q279.8117,48.1362 279.8117,45.0151 Q279.8117,41.8857 281.1315,40.2339 Q282.4514,38.582 284.9582,38.582 Q285.6638,38.582 286.3112,38.7314 Q286.9587,38.8809 287.5231,39.1797 L287.5231,41.9023 Q286.8923,41.3213 286.2988,41.0515 Q285.7053,40.7817 285.0744,40.7817 Q283.7297,40.7817 283.0449,41.8484 Q282.3601,42.915 282.3601,45.0151 Q282.3601,47.1069 283.0449,48.1736 Q283.7297,49.2402 285.0744,49.2402 Q285.7053,49.2402 286.2988,48.9705 Q286.8923,48.7007 287.5231,48.1196 Z "></path><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="115" x="302.45" y="49.7344">ConfirmOnlineOrder</text><rect fill="#FFFFFF" height="16.1328" style="stroke: #000000; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" width="74" x="443" y="26.1992"></rect><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="72" x="444" y="38.8008">确认线上订单</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="253" x2="513" y1="61.1992" y2="61.1992"></line><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="164" x="258" y="75.834">confirmOnlineOrderId:number</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="84" x="258" y="88.7891">orderId: integer</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="99" x="258" y="101.7441">isConfirm:boolean</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="86" x="258" y="114.6992">createTime:Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="98" x="258" y="127.6543">isDelete:boolean #</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="250" x="258" y="140.6094">accountPayrecvId:number # 同意后生成的支出id</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="206" x="258" y="153.5645">paymentWay:string  #还款方式 线下现金</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="250" x="258" y="166.5195">orderType:string  #还款类型 交易订单或赊账还款</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="247" x="258" y="179.4746">status:string #'active','confrm','refuse','delete'</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="253" x2="513" y1="185.7949" y2="185.7949"></line><!--link Order to AccountRecvPay--><path d="M259.3264,437.3848 C275.7861,455.5737 293.3467,474.9792 310.7303,494.1891 " fill="none" id="Order-AccountRecvPay" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="255.6113,433.2794,258.6843,442.6366,258.9662,436.9868,264.6161,437.2687,255.6113,433.2794" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link AccountRecvPay to ConfirmPaymentLog--><path d="M311.1369,766.4013 C295.4461,784.3432 279.8105,802.2218 265.3311,818.7783 " fill="none" id="AccountRecvPay-ConfirmPaymentLog" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="261.6756,822.9584,270.6114,818.817,264.9672,819.1947,264.5895,813.5505,261.6756,822.9584" style="stroke: #A80036; stroke-width: 1.0;"></polygon><polygon fill="#A80036" points="314.5415,762.5083,305.6057,766.6497,311.2499,766.272,311.6276,771.9163,314.5415,762.5083" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link Order to ConfirmPaymentLog--><path d="M178.3977,438.4848 C182.3078,546.9902 188.6526,723.0588 192.2609,823.1903 " fill="none" id="Order-ConfirmPaymentLog" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="178.2133,433.3696,174.5401,442.5079,178.3934,438.3664,182.535,442.2197,178.2133,433.3696" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link AccountRecvPay to Account--><path d="M641.5182,628.1992 C651.4768,628.1992 661.4354,628.1992 671.394,628.1992 " fill="none" id="AccountRecvPay-Account" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="636.3105,628.1992,645.3105,632.1992,641.3105,628.1992,645.3105,624.1992,636.3105,628.1992" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link Order to OrderItem--><path d="M364.2259,344.1992 C369.2579,344.1992 374.2899,344.1992 379.3219,344.1992 " fill="none" id="Order-OrderItem" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="none" points="364.1895,351.1991,344.1895,344.1992,364.1894,337.1991,364.1895,351.1991" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link ConfirmOnlineOrder to Order--><path d="M309.0813,194.3246 C292.5514,212.8016 274.9121,232.5186 258.0406,251.3774 " fill="none" id="ConfirmOnlineOrder-Order" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="254.6771,255.1371,263.659,251.0967,258.0109,251.4108,257.6968,245.7626,254.6771,255.1371" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link ConfirmOnlineOrder to AccountRecvPay--><path d="M496.0054,194.4466 C513.085,212.4329 528.2356,232.8528 538,255.1992 C569.676,327.6919 557.4922,356.527 538,433.1992 C533.2081,452.0481 526.1853,471.0445 517.9976,489.3975 " fill="none" id="ConfirmOnlineOrder-AccountRecvPay" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"></path><polygon fill="#A80036" points="515.8916,494.0492,523.2476,487.5002,517.9538,489.4943,515.9597,484.2006,515.8916,494.0492" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="558" y="349.2676">有可能产生收支</text><!--
+@startuml
+title 订单/赊欠订单 的实体
+class Account{
+    accountId
+    accountType #账户类型:会员账户,市场账户
+    name
+    createTime
+    status
+
+}
+
+class AccountRecvPay<收支记录>{
+      recvPayId:integer
+      accountId:integer
+      accountName:string
+      toAccountId:integer
+      toAccountName:string
+      io:int #-1为支出,1为收入
+      amt:BigDecimal
+      createTime:Date
+      orderId:integer
+      subjectId:intege #科目id
+      orderType:string  #订单类型
+      beforeAccountAmt: BigDecimal
+      afterAccoumtAmt:BigDecimal
+      beforeToAccountAmt: BigDecimal
+      afterToAccoumtAmt:BigDecimal
+      fromConfirmPaymentLogId 
+      paymentType:string #支付方式:线上账户,(支付宝,微信,保留),线上确认支付,线下
+}
+
+ class Order<交易订单>{
+      title:string  订单标题
+      orderId: integer
+      orderNo:string #订单号
+      buyerId: integer #创建者id
+      sellerId: integer #卖方id
+      createTime: Date #交易时间
+      status:string #订单状态
+      totalAmt:BigDecimal #总计
+      orderType:string #交易订单bizOrder或赊账订单paymentOrder
+      finishTime:Date #关闭/完结时间
+}
+class OrderItem{
+    name
+    categoryId
+    categoryArrStr
+    valuetionType #计价方式
+    weightPrice#计重单价
+    piecePrice#计件单价
+    count#小结
+}
+
+class ConfirmPaymentLog<请求确认还款记录>{
+    confrmPaymentLogId:number
+    orderId: integer
+    isConfirm:boolean
+    createTime:Date
+    isDelete:boolean #
+    accountPayrecvId:number # 同意后生成的支出id
+    paymentWay:string  #还款方式 线下现金
+    orderType:string  #还款类型 交易订单或赊账还款
+}
+class ConfirmOnlineOrder<确认线上订单>{
+    confirmOnlineOrderId:number
+    orderId: integer
+    isConfirm:boolean
+    createTime:Date
+    isDelete:boolean #
+    accountPayrecvId:number # 同意后生成的支出id
+    paymentWay:string  #还款方式 线下现金
+    orderType:string  #还款类型 交易订单或赊账还款
+    status:string #'active','confrm','refuse','delete'
+}
+
+Order <- - AccountRecvPay
+ConfirmPaymentLog <-up->AccountRecvPay
+ConfirmPaymentLog -up->Order
+Account-left>AccountRecvPay
+OrderItem -left-|>Order
+ConfirmOnlineOrder- ->Order
+ConfirmOnlineOrder..>AccountRecvPay:有可能产生收支
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.6
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="698px" preserveAspectRatio="none" style="width:1011px;height:698px;" version="1.1" viewBox="0 0 1011 698" width="1011px" zoomAndPan="magnify"><defs><filter height="300%" id="fh3than030o4e" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="90" x="464" y="17.4023">订单状态图</text><rect fill="#FEFECE" filter="url(#fh3than030o4e)" height="78.8867" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="276" y="445.1992"></rect><line style="stroke: #A80036; stroke-width: 1.5;" x1="276" x2="396" y1="471.6875" y2="471.6875"></line><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="294" y="463.7344">交易订单完成</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="281" y="488.2891">订单状态:完成</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="281" y="502.4219">支付类型:线上</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="281" y="516.5547">订单类型:交易订单</text><rect fill="#FEFECE" filter="url(#fh3than030o4e)" height="78.8867" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="188" x="147" y="282.1992"></rect><line style="stroke: #A80036; stroke-width: 1.5;" x1="147" x2="335" y1="308.6875" y2="308.6875"></line><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="168" x="157" y="300.7344">交易订单线上支付订单挂起</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="80" x="152" y="325.2891">订单状态:挂起,</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="152" y="339.4219">支付类型:线上账户</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="152" y="353.5547">订单类型:交易订单</text><rect fill="#FEFECE" filter="url(#fh3than030o4e)" height="93.0195" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="220" x="6" y="438.1992"></rect><line style="stroke: #A80036; stroke-width: 1.5;" x1="6" x2="226" y1="464.6875" y2="464.6875"></line><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="74" y="456.7344">交易订单失败</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="11" y="481.2891">订单状态:失败</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="11" y="495.4219">支付类型:线上</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="11" y="509.5547">订单类型:交易订单</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="200" x="11" y="523.6875">订单失败原因:挂起取消,线上确认拒绝</text><rect fill="#FEFECE" filter="url(#fh3than030o4e)" height="78.8867" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="585" y="126.1992"></rect><line style="stroke: #A80036; stroke-width: 1.5;" x1="585" x2="705" y1="152.6875" y2="152.6875"></line><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="617" y="144.7344">赊账订单</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="88" x="590" y="169.2891">订单状态:代付款</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="590" y="183.4219">支付类型:赊欠</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="590" y="197.5547">订单类型:赊欠订单</text><rect fill="#FEFECE" filter="url(#fh3than030o4e)" height="78.8867" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="722" y="282.1992"></rect><line style="stroke: #A80036; stroke-width: 1.5;" x1="722" x2="842" y1="308.6875" y2="308.6875"></line><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="740" y="300.7344">赊账订单挂起</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="727" y="325.2891">订单状态:挂起</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="727" y="339.4219">支付类型:赊欠</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="727" y="353.5547">订单类型:赊欠订单</text><rect fill="#FEFECE" filter="url(#fh3than030o4e)" height="93.0195" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="220" x="534" y="438.1992"></rect><line style="stroke: #A80036; stroke-width: 1.5;" x1="534" x2="754" y1="464.6875" y2="464.6875"></line><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="602" y="456.7344">赊账订单失败</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="539" y="481.2891">订单状态:订单失败</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="539" y="495.4219">支付类型:赊账</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="539" y="509.5547">订单类型:交易订单</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="200" x="539" y="523.6875">订单失败原因:挂起取消,线上确认拒绝</text><rect fill="#FEFECE" filter="url(#fh3than030o4e)" height="78.8867" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="821" y="445.1992"></rect><line style="stroke: #A80036; stroke-width: 1.5;" x1="821" x2="941" y1="471.6875" y2="471.6875"></line><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="832" y="463.7344">赊账订单未还清</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="88" x="826" y="488.2891">订单状态:未还清</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="826" y="502.4219">支付类型:赊账</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="826" y="516.5547">订单类型:赊欠订单</text><rect fill="#FEFECE" filter="url(#fh3than030o4e)" height="78.8867" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="821" y="608.1992"></rect><line style="stroke: #A80036; stroke-width: 1.5;" x1="821" x2="941" y1="634.6875" y2="634.6875"></line><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="832" y="626.7344">赊账订单已还清</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="826" y="651.2891">订单状态:完成</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="826" y="665.4219">支付类型:赊账</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="826" y="679.5547">订单状态:赊欠订单</text><ellipse cx="483" cy="39.1992" fill="#000000" filter="url(#fh3than030o4e)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"></ellipse><rect fill="#FEFECE" filter="url(#fh3than030o4e)" height="78.8867" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="132" x="257" y="126.1992"></rect><line style="stroke: #A80036; stroke-width: 1.5;" x1="257" x2="389" y1="152.6875" y2="152.6875"></line><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="267" y="144.7344">交易订单线上支付</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="88" x="262" y="169.2891">订单状态:待付款</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="262" y="183.4219">支付类型:线上账户</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="262" y="197.5547">订单类型:交易订单</text><!--link *start to 交易订单线上支付--><path d="M474.8456,45.6463 C457.0382,59.7253 413.3883,94.2359 377.4358,122.6609 " fill="none" id="*start-&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="373.0918,126.0954,382.6326,123.6515,377.014,122.9945,377.6711,117.3759,373.0918,126.0954" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="433" y="92.7676">线上支付</text><!--link 交易订单线上支付 to 交易订单线上支付订单挂起--><path d="M302.0958,205.4682 C290.5298,227.4719 276.1292,254.8681 264.2143,277.5354 " fill="none" id="&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;-&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;&#x8BA2;&#x5355;&#x6302;&#x8D77;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="261.8661,282.0028,269.5944,275.8976,264.1926,277.577,262.5131,272.1752,261.8661,282.0028" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="286" y="248.7676">挂起</text><!--link 交易订单线上支付订单挂起 to 交易订单完成--><path d="M264.2396,361.5735 C278.1502,385.4412 295.8554,415.8195 310.1985,440.4292 " fill="none" id="&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;&#x8BA2;&#x5355;&#x6302;&#x8D77;-&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x5B8C;&#x6210;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="312.8359,444.9544,311.7598,435.1645,310.3181,440.6346,304.8481,439.1929,312.8359,444.9544" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="26" x="293" y="404.7676">付款</text><!--link 交易订单线上支付 to 交易订单完成--><path d="M335.4434,205.4148 C341.7853,227.7302 348.8171,256.2357 352,282.1992 C358.6255,336.2438 351.4393,398.7566 344.6914,439.8647 " fill="none" id="&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;-&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x5B8C;&#x6210;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="343.8291,445.0194,349.2593,436.8028,344.6541,440.088,341.3689,435.4828,343.8291,445.0194" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="356" y="326.7676">&#8;线上支付确认通过</text><!--link 交易订单线上支付订单挂起 to 交易订单失败--><path d="M210.4216,361.5735 C193.682,383.4019 172.7663,410.676 154.8778,434.0026 " fill="none" id="&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;&#x8BA2;&#x5355;&#x6302;&#x8D77;-&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x5931;&#x8D25;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="151.8049,438.0096,160.4559,433.3021,154.8476,434.042,154.1077,428.4338,151.8049,438.0096" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 交易订单线上支付 to 交易订单失败--><path d="M256.7582,182.1041 C176.9687,203.3608 50.2179,242.4314 23,282.1992 C-9.8757,330.2335 28.0174,391.7543 64.8495,434.3165 " fill="none" id="&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x7EBF;&#x4E0A;&#x652F;&#x4ED8;-&#x4EA4;&#x6613;&#x8BA2;&#x5355;&#x5931;&#x8D25;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="68.1796,438.1175,65.2576,428.7121,64.8848,434.3567,59.2402,433.9839,68.1796,438.1175" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="24" y="326.7676">线上支付确认拒绝</text><!--link *start to 赊账订单--><path d="M491.2563,45.6463 C509.3596,59.7825 553.8416,94.5168 590.3272,123.0072 " fill="none" id="*start-&#x8D4A;&#x8D26;&#x8BA2;&#x5355;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="594.282,126.0954,589.6501,117.4037,590.3411,123.0182,584.7266,123.7092,594.282,126.0954" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 赊账订单 to 赊账订单挂起--><path d="M679.9254,205.4682 C699.4101,227.6552 723.7099,255.3251 743.7119,278.1011 " fill="none" id="&#x8D4A;&#x8D26;&#x8BA2;&#x5355;-&#x8D4A;&#x8D26;&#x8BA2;&#x5355;&#x6302;&#x8D77;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="747.1384,282.0028,744.2053,272.6009,743.8391,278.2458,738.1941,277.8797,747.1384,282.0028" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="719" y="248.7676">订单挂起</text><!--link 赊账订单挂起 to 赊账订单失败--><path d="M748.2414,361.5735 C729.7609,383.4019 706.67,410.676 686.9211,434.0026 " fill="none" id="&#x8D4A;&#x8D26;&#x8BA2;&#x5355;&#x6302;&#x8D77;-&#x8D4A;&#x8D26;&#x8BA2;&#x5355;&#x5931;&#x8D25;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="683.5287,438.0096,692.3969,433.7254,686.7595,434.1936,686.2913,428.5561,683.5287,438.0096" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="78" x="723" y="404.7676">挂起拒绝支付</text><!--link 赊账订单挂起 to 赊账订单未还清--><path d="M806.2181,361.5735 C820.7144,385.4412 839.1651,415.8195 854.1121,440.4292 " fill="none" id="&#x8D4A;&#x8D26;&#x8BA2;&#x5355;&#x6302;&#x8D77;-&#x8D4A;&#x8D26;&#x8BA2;&#x5355;&#x672A;&#x8FD8;&#x6E05;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="856.8605,444.9544,855.6072,435.1856,854.2649,440.6809,848.7696,439.3386,856.8605,444.9544" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 赊账订单未还清 to 赊账订单已还清--><path d="M881,524.5735 C881,548.2431 881,578.3158 881,602.8154 " fill="none" id="&#x8D4A;&#x8D26;&#x8BA2;&#x5355;&#x672A;&#x8FD8;&#x6E05;-&#x8D4A;&#x8D26;&#x8BA2;&#x5355;&#x5DF2;&#x8FD8;&#x6E05;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="881,607.9544,885,598.9544,881,602.9544,877,598.9544,881,607.9544" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="117" x="882" y="574.7676">多次不同类型的还款</text><!--link 赊账订单 to 赊账订单失败--><path d="M624.6322,205.238 C614.4319,227.2609 603.1742,255.5438 598,282.1992 C591.3093,316.6669 591.7737,326.6446 598,361.1992 C602.3945,385.5874 611.3044,411.4454 620.1223,433.1641 " fill="none" id="&#x8D4A;&#x8D26;&#x8BA2;&#x5355;-&#x8D4A;&#x8D26;&#x8BA2;&#x5355;&#x5931;&#x8D25;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="622.1195,438.0184,622.3942,428.1734,620.217,433.3945,614.9959,431.2173,622.1195,438.0184" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="599" y="326.7676">线上支付确认拒绝</text><!--link 赊账订单 to 赊账订单未还清--><path d="M705.0485,180.9764 C755.3139,197.1784 824.2398,228.1069 859,282.1992 C889.4038,329.5122 890.5225,396.191 887.008,439.9149 " fill="none" id="&#x8D4A;&#x8D26;&#x8BA2;&#x5355;-&#x8D4A;&#x8D26;&#x8BA2;&#x5355;&#x672A;&#x8FD8;&#x6E05;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="886.5581,445.1305,891.3168,436.5076,886.9878,440.149,883.3464,435.8201,886.5581,445.1305" style="stroke: #A80036; stroke-width: 1.0;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="104" x="887" y="326.7676">线上支付确认通过</text><!--
+@startuml
+title 订单状态图
+
+交易订单完成:订单状态:完成\n支付类型:线上\n订单类型:交易订单
+交易订单线上支付订单挂起:订单状态:挂起,\n支付类型:线上账户\n订单类型:交易订单
+交易订单失败:订单状态:失败\n支付类型:线上\n订单类型:交易订单\n订单失败原因:挂起取消,线上确认拒绝
+赊账订单:订单状态:代付款\n支付类型:赊欠\n订单类型:赊欠订单
+赊账订单挂起:订单状态:挂起\n支付类型:赊欠\n订单类型:赊欠订单
+赊账订单失败:订单状态:订单失败\n支付类型:赊账\n订单类型:交易订单\n订单失败原因:挂起取消,线上确认拒绝
+赊账订单未还清:订单状态:未还清\n支付类型:赊账\n订单类型:赊欠订单
+赊账订单已还清:订单状态:完成\n支付类型:赊账\n订单状态:赊欠订单
+
+[*]- ->交易订单线上支付:线上支付
+交易订单线上支付- ->交易订单线上支付订单挂起:挂起
+交易订单线上支付:订单状态:待付款\n支付类型:线上账户\n订单类型:交易订单
+交易订单线上支付订单挂起- ->交易订单完成:付款
+交易订单线上支付- ->交易订单完成:线上支付确认通过
+交易订单线上支付订单挂起-down->交易订单失败
+交易订单线上支付-right->交易订单失败:线上支付确认拒绝
+[*] - -> 赊账订单
+赊账订单- ->赊账订单挂起:订单挂起
+赊账订单挂起- ->赊账订单失败:挂起拒绝支付
+赊账订单挂起- ->赊账订单未还清
+赊账订单未还清- ->赊账订单已还清:多次不同类型的还款
+赊账订单- ->赊账订单失败:线上支付确认拒绝
+赊账订单- ->赊账订单未还清:线上支付确认通过
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.6
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><p><strong>订单的支付类型为:</strong></p>
+<ul>
+<li>线上</li>
+<li>赊账</li>
+</ul>
+<p><strong>每一笔收支分为不同类型:</strong></p>
+<ul>
+<li>支付宝</li>
+<li>微信</li>
+<li>线上账户转账
+<ul>
+<li>来源于钱包线上账户转账</li>
+</ul>
+</li>
+<li>线上账户同意转账
+<ul>
+<li>来源于交易中的线上支付</li>
+</ul>
+</li>
+<li>线下还款申请同意
+<ul>
+<li>来源于赊账的线下还款</li>
+</ul>
+</li>
+<li>线下还款</li>
+</ul>
+<p>订单失败的原因</p>
+<p>交易订单</p>
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="139px" preserveAspectRatio="none" style="width:553px;height:139px;" version="1.1" viewBox="0 0 553 139" width="553px" zoomAndPan="magnify"><defs><filter height="300%" id="fuppntxjpwmom" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><ellipse cx="239.299" cy="113.659" fill="#FEFECE" filter="url(#fuppntxjpwmom)" rx="22.799" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="225.299" y="118.4031">订单</text><ellipse cx="48.598" cy="23.659" fill="#FEFECE" filter="url(#fuppntxjpwmom)" rx="42.598" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="20.598" y="28.4031">商户支出</text><ellipse cx="168.598" cy="23.659" fill="#FEFECE" filter="url(#fuppntxjpwmom)" rx="42.598" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="140.598" y="28.4031">商户收入</text><ellipse cx="311.5152" cy="23.503" fill="#FEFECE" filter="url(#fuppntxjpwmom)" rx="65.5152" ry="15.503" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="94" x="264.5152" y="28.2472">市场支出税收A</text><ellipse cx="477.2669" cy="23.3534" fill="#FEFECE" filter="url(#fuppntxjpwmom)" rx="64.7669" ry="15.3534" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="92" x="431.2669" y="28.0975">市场支出税收B</text><!--link 商户支出 to 订单--><path d="M73.4699,35.2659 C110.6311,52.7764 179.9841,85.4559 216.1707,102.5071 " fill="none" id="&#x5546;&#x6237;&#x652F;&#x51FA;-&#x8BA2;&#x5355;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="220.8384,104.7066,214.402,97.2519,216.3154,102.5753,210.992,104.4887,220.8384,104.7066" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 商户收入 to 订单--><path d="M179.5938,37.5625 C192.1059,53.423 212.458,79.2214 225.9128,96.2768 " fill="none" id="&#x5546;&#x6237;&#x6536;&#x5165;-&#x8BA2;&#x5355;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="229.176,100.4132,226.7421,90.8698,226.0792,96.4877,220.4613,95.8247,229.176,100.4132" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 市场支出税收A to 订单--><path d="M299.2862,38.7673 C286.4889,54.7639 266.4329,79.8338 253.1292,96.4635 " fill="none" id="&#x5E02;&#x573A;&#x652F;&#x51FA;&#x7A0E;&#x6536;A-&#x8BA2;&#x5355;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="249.9009,100.4988,258.6465,95.9696,253.0243,96.5944,252.3995,90.9722,249.9009,100.4988" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 市场支出税收B to 订单--><path d="M442.6379,36.6832 C393.9031,55.1123 306.6221,88.1177 264.115,104.1918 " fill="none" id="&#x5E02;&#x573A;&#x652F;&#x51FA;&#x7A0E;&#x6536;B-&#x8BA2;&#x5355;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="259.4047,105.973,269.2377,106.531,264.0815,104.2045,266.4081,99.0482,259.4047,105.973" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+(订单)
+(商户支出)- ->订单
+(商户收入)- ->订单
+(市场支出税收A)- ->订单
+(市场支出税收B)- ->订单
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.6
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p><p>系统纬度的用例</p>
+<p><?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="191px" preserveAspectRatio="none" style="width:663px;height:191px;" version="1.1" viewBox="0 0 663 191" width="663px" zoomAndPan="magnify"><defs><filter height="300%" id="fokdfey9ucibz" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"></feGaussianBlur><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></feColorMatrix><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"></feOffset><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"></feBlend></filter></defs><g><!--entity 商户--><ellipse cx="190" cy="18" fill="#FEFECE" filter="url(#fokdfey9ucibz)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><path d="M190,26 L190,53 M177,34 L203,34 M190,53 L177,68 M190,53 L203,68 " fill="none" filter="url(#fokdfey9ucibz)" style="stroke: #A80036; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="176" y="88.5352">商户</text><ellipse cx="28.799" cy="165.659" fill="#FEFECE" filter="url(#fokdfey9ucibz)" rx="22.799" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="14.799" y="170.4031">赊账</text><ellipse cx="130.098" cy="165.659" fill="#FEFECE" filter="url(#fokdfey9ucibz)" rx="42.598" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="102.098" y="170.4031">手机开单</text><ellipse cx="250.098" cy="165.659" fill="#FEFECE" filter="url(#fokdfey9ucibz)" rx="42.598" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="222.098" y="170.4031">智能交易</text><ellipse cx="370.098" cy="165.659" fill="#FEFECE" filter="url(#fokdfey9ucibz)" rx="42.598" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="342.098" y="170.4031">伙计开单</text><!--entity 市场--><ellipse cx="550" cy="18" fill="#FEFECE" filter="url(#fokdfey9ucibz)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"></ellipse><path d="M550,26 L550,53 M537,34 L563,34 M550,53 L537,68 M550,53 L563,68 " fill="none" filter="url(#fokdfey9ucibz)" style="stroke: #A80036; stroke-width: 2.0;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="536" y="88.5352">市场</text><ellipse cx="490.098" cy="165.659" fill="#FEFECE" filter="url(#fokdfey9ucibz)" rx="42.598" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="462.098" y="170.4031">收费管理</text><ellipse cx="610.098" cy="165.659" fill="#FEFECE" filter="url(#fokdfey9ucibz)" rx="42.598" ry="14.659" style="stroke: #A80036; stroke-width: 1.5;"></ellipse><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="582.098" y="170.4031">交易统计</text><!--link 商户 to 赊账--><path d="M174.8535,60.413 C145.4867,81.5717 80.8485,128.1433 48.3942,151.5265 " fill="none" id="&#x5546;&#x6237;-&#x8D4A;&#x8D26;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="44.2235,154.5315,53.8639,152.5159,48.2803,151.6087,49.1874,146.0251,44.2235,154.5315" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 商户 to 手机开单--><path d="M174.8595,78.7717 C163.8502,100.0563 149.2691,128.2464 139.7644,146.6221 " fill="none" id="&#x5546;&#x6237;-&#x624B;&#x673A;&#x5F00;&#x5355;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="137.4626,151.0723,145.1503,144.916,139.7597,146.6312,138.0445,141.2406,137.4626,151.0723" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 商户 to 智能交易--><path d="M205.1405,78.7717 C216.1498,100.0563 230.7309,128.2464 240.2356,146.6221 " fill="none" id="&#x5546;&#x6237;-&#x667A;&#x80FD;&#x4EA4;&#x6613;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="242.5374,151.0723,241.9555,141.2406,240.2403,146.6312,234.8497,144.916,242.5374,151.0723" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 商户 to 伙计开单--><path d="M205.0371,59.1906 C236.1344,79.231 307.7627,125.3915 345.5843,149.7654 " fill="none" id="&#x5546;&#x6237;-&#x4F19;&#x8BA1;&#x5F00;&#x5355;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="350.0241,152.6266,344.6259,144.3889,345.8213,149.918,340.2922,151.1135,350.0241,152.6266" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 市场 to 收费管理--><path d="M534.8595,78.7717 C523.8502,100.0563 509.2691,128.2464 499.7644,146.6221 " fill="none" id="&#x5E02;&#x573A;-&#x6536;&#x8D39;&#x7BA1;&#x7406;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="497.4626,151.0723,505.1503,144.916,499.7597,146.6312,498.0445,141.2406,497.4626,151.0723" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--link 市场 to 交易统计--><path d="M565.1405,78.7717 C576.1498,100.0563 590.7309,128.2464 600.2356,146.6221 " fill="none" id="&#x5E02;&#x573A;-&#x4EA4;&#x6613;&#x7EDF;&#x8BA1;" style="stroke: #A80036; stroke-width: 1.0;"></path><polygon fill="#A80036" points="602.5374,151.0723,601.9555,141.2406,600.2403,146.6312,594.8497,144.916,602.5374,151.0723" style="stroke: #A80036; stroke-width: 1.0;"></polygon><!--
+@startuml
+actor 商户
+(商户)- ->(赊账)
+(商户)- ->(手机开单)
+(商户)- ->(智能交易)
+(商户)- ->(伙计开单)
+市场- ->(收费管理)
+市场- ->(交易统计)
+@enduml
+
+PlantUML version 1.2018.01(Mon Jan 29 02:08:22 CST 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_171-b11
+Operating System: Mac OS X
+OS Version: 10.13.6
+Default Encoding: UTF-8
+Language: zh
+Country: CN
+--></g></svg></p>
+      </div>
+      
+      
+    </body>
+    
+    
+    
+    
+    
+    
+    
+  </html>
